@@ -1,0 +1,104 @@
+commit ab517b505e68c70df2549318580b31444c996a6d
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:57:05 2020 +0200
+
+    muutokset fileihin
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit fa87413c53d44e5cb65dbe57cb0609f237d4d054
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:49:31 2020 +0200
+
+    hakemisto tiedostoja lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 951548b026d52edaba039a36b53fd7833c690fa5
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:44:08 2020 +0200
+
+    lisäyksiä ja poistoja
+
+ kolmas.txt   | 1 +
+ tiedosto.txt | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit dfc8e78bf77c85ca54788c162416370a4e3b1c5f
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:43:32 2020 +0200
+
+    lisäyksiä ja poistoja
+
+ eka.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 3f0ac0a75fba6504b8d085ab997f2682600f4d69
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:39:28 2020 +0200
+
+    toinen poistettu
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit fba3bdbf80f159789eeb99615f9cf50a8b7b6d02
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:35:02 2020 +0200
+
+    poistettu ja lisätty
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ea7c6d963d83b56564315fdbf5bb08bf6d25b705
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:33:24 2020 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0af8064cbf7f5f4642484591351b71aa3aeaeb5b
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:19:06 2020 +0200
+
+    stuff lisätty
+
+ stuff/jokutiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 939954a8fecd226a3d02e973f6b8b983971da90f
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:17:56 2020 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f1cd49aa14c3a27b91f8cf840b1784da0c251a03
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:16:21 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit b085108da59878537337fb6b4bb7863afe72c0c3
+Author: nettivastaava <vaxandst@cubbli20-gold.local>
+Date:   Mon Oct 26 11:14:30 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
