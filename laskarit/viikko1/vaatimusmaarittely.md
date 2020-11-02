@@ -9,6 +9,11 @@ Alustavasti sovelluksessa tulee olemaan vain yhdenlaisia, peruskäyttäjiä.
 ### **Käyttöliittymäluonnos**
 Sovellus koostuu viidestä eri näkymästä.
 
+x-special/nautilus-clipboard
+copy
+file:///home/vaxandst/Desktop/IMG_20201102_132437.jpg
+
+
 ### **Ennen kirjautumista**
     • Käyttäjä voi luoda järjestelmään uuden käyttäjätunnuksen
     • Käyttäjä voi kirjautua sisään luomillaan tunnuksilla
