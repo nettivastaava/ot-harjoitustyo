@@ -8,4 +8,6 @@
 
 [komentorivi.txt](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-muutos taas
+### Tehtävägeneraattori
+
+[Vaatimusmäärittely](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/laskarit/viikko1/vaatimusmaarittely.md)
