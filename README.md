@@ -10,4 +10,4 @@
 
 ### Tehtävägeneraattori
 
-[Vaatimusmäärittely](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/laskarit/viikko1/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/vaatimusmaarittely.md)
