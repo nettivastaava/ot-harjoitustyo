@@ -29,6 +29,7 @@ Sovellus koostuu viidestä eri näkymästä.
       
 ### **Jatkokehitysideoita**
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla:
+
     • Käyttäjä voi eritellä, ketkä voivat nähdä ja ratkoa hänen lisäämänsä tehtäväsarjan
     • Käyttäjä näkee jokaisesta tehtäväsarjasta saamansa pisteet
     • Jokaisesta tehtäväsarjasta näkee, paljonko pisteitä kukin käyttäjä on siitä saanut
