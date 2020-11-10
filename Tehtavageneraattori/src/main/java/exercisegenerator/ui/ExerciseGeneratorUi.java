@@ -39,32 +39,56 @@ public class ExerciseGeneratorUi extends Application {
    
     
     @Override
-public void start(Stage ikkuna) {
-
-    Label nimiTeksti = new Label("Nimi: ");
-    TextField nimiKentta = new TextField();
-    Label hetuTeksti = new Label("Hetu: ");
-    TextField hetuKentta = new TextField();
-
-    Button lisaaNappi = new Button("Lisää henkilö!");
-
-    GridPane komponenttiryhma = new GridPane();
-    komponenttiryhma.add(nimiTeksti, 0, 0);
-    komponenttiryhma.add(nimiKentta, 1, 0);
-    komponenttiryhma.add(hetuTeksti, 0, 1);
-    komponenttiryhma.add(hetuKentta, 1, 1);
-    komponenttiryhma.add(lisaaNappi, 1, 2);
-
-    // tyylittelyä: lisätään tyhjää tilaa reunoille ym
-    komponenttiryhma.setHgap(10);
-    komponenttiryhma.setVgap(10);
-    komponenttiryhma.setPadding(new Insets(10, 10, 10, 10));
-
-    Scene nakyma = new Scene(komponenttiryhma);
-
-    ikkuna.setScene(nakyma);
-    ikkuna.show();
-}
+    public void start(Stage window) throws Exception {
+        VBox loginPane = new VBox(10);
+        HBox inputPane = new HBox(10);
+        loginPane.setPadding(new Insets(10));
+        
+        TextField usernameInput = new TextField();     
+        usernameInput.setPrefWidth(150);
+        
+        inputPane.getChildren().addAll(new Label("username:"), usernameInput);
+        Label exerciseLabel = new Label("ExerciseApp");
+        Button toRegistrationButton = new Button("create a new user");
+        toRegistrationButton.setPadding(new Insets(10));
+        
+        loginPane.getChildren().addAll(exerciseLabel, inputPane, toRegistrationButton);       
+        loginPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        loginScene = new Scene(loginPane, 420, 300);  
+         
+        window.setScene(loginScene);
+        window.show();
+        
+        Button registerButton = new Button("create");
+        registerButton.setPadding(new Insets(10));
+        
+        toRegistrationButton.setOnAction(e->{
+            VBox registerPane = new VBox(10);
+            HBox inputPane2 = new HBox(10);            
+            registerPane.setPadding(new Insets(10));
+            
+            TextField usernameRegInput = new TextField();           
+            usernameRegInput.setPrefWidth(150);
+            
+            inputPane2.getChildren().addAll(new Label("username:"), usernameRegInput);
+            Label registerLabel = new Label("Registration");
+            
+            
+            registerPane.getChildren().addAll(registerLabel, inputPane2, registerButton);       
+            registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+            
+            registerScene = new Scene(registerPane, 420, 300);
+            window.setScene(registerScene);
+            
+        });  
+        
+        registerButton.setOnAction(e->{
+            
+        });
+        
+        
+      
+    }
     
     public static void main(String[] args) {
         launch(args);
