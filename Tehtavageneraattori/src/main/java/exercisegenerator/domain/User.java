@@ -17,8 +17,12 @@ public class User {
 
     
     public User(String username, String password) {
-        this.username=username;
-        this.password=password;
+        if (username.length()<3 || password.length()<5) {
+            this.username=null;
+        } else {
+            this.username=username;
+            this.password=password;
+        }
 
     }
 

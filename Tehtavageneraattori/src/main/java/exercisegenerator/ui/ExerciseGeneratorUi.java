@@ -5,6 +5,10 @@
  */
 package exercisegenerator.ui;
 
+import exercisegenerator.dao.FileUserDao;
+import exercisegenerator.domain.ExerciseService;
+import exercisegenerator.domain.User;
+import java.io.FileInputStream;
 import java.util.Properties;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -36,7 +40,17 @@ public class ExerciseGeneratorUi extends Application {
     private Scene createExerciseScene;
     private Scene solveExerciseScene;
     
-   
+    private ExerciseService exService;
+    
+    @Override
+    public void init() throws Exception {
+        Properties properties = new Properties();  
+        properties.load(new FileInputStream("config.properties"));
+
+        String userFile = properties.getProperty("userFile");
+        FileUserDao userDao = new FileUserDao(userFile);     
+        exService = new ExerciseService(null, userDao);
+    }
     
     @Override
     public void start(Stage window) throws Exception {
@@ -71,37 +85,43 @@ public class ExerciseGeneratorUi extends Application {
         Button registerButton = new Button("create");
         registerButton.setPadding(new Insets(10));
         
+        TextField usernameRegInput = new TextField();           
+        usernameRegInput.setPrefWidth(150);
+            
+        TextField passwordRegInput = new TextField();
+        passwordRegInput.setPrefWidth(150);
+        
         toRegistrationButton.setOnAction(e->{
             VBox registerPane = new VBox(10);
             HBox inputPaneUpper2 = new HBox(10);   
             HBox inputPaneLower2 = new HBox(10);
             registerPane.setPadding(new Insets(10));
-            
-            TextField usernameRegInput = new TextField();           
-            usernameRegInput.setPrefWidth(150);
-            
-            TextField passwordRegInput = new TextField();
-            passwordRegInput.setPrefWidth(150);
-            
+                       
             inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput);
             inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
             Label registerLabel = new Label("Registration");
-            
-            
+                        
             registerPane.getChildren().addAll(registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
             registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
             
             registerScene = new Scene(registerPane, 420, 300);
-            window.setScene(registerScene);
-            
+            window.setScene(registerScene);         
         });  
         
         registerButton.setOnAction(e->{
-            window.setScene(loginScene);
-        });
-        
-        
-      
+            String username = usernameRegInput.getText();
+            String password = passwordRegInput.getText();
+            User newUser = new User(username, password);
+            
+            if (newUser.getUsername()==null) {
+                System.out.println("username or password is too short");
+            } else if (exService.createUser(newUser)) {
+                System.out.println("success");
+                window.setScene(loginScene);
+            } else
+                System.out.println("username is not available");
+                      
+        }); 
     }
     
     public static void main(String[] args) {
