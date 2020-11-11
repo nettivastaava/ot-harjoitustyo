@@ -9,17 +9,26 @@ import static org.junit.Assert.*;
 public class UserTest {
     
     @Test
-    public void usersAreEqualWhenUsernamesMatch() {
-        User user1 = new User("Heimo");
-        User user2 = new User("Heimo");
+    public void usersAreEqualWhenUsernamesAndPasswordsMatch() {
+        User user1 = new User("Heimo", "kissa");
+        User user2 = new User("Heimo", "kissa");
         
         assertEquals(user1, user2);
     }
     
     @Test
-    public void usersAreNotEqualsWhenUsernamesDoesntMatch() {
-        User user1 = new User("Heimo");
-        User user2 = new User("Huima");
+    public void usersAreNotEqualsWhenPasswordsAreNotEqual() {
+        User user1 = new User("Heimo", "kissa");
+        User user2 = new User("Heimo", "koira");
+        
+        assertFalse(user1.equals(user2));
+    }
+    
+    @Test
+    public void usersAreNotEqualsWhenUsernamesAreNotEqual() {
+        User user1 = new User("Heimo", "kissa");
+        User user2 = new User("Huima", "kissa");
+        
         assertFalse(user1.equals(user2));
     } 
     

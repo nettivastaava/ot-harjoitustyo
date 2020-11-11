@@ -41,18 +41,27 @@ public class ExerciseGeneratorUi extends Application {
     @Override
     public void start(Stage window) throws Exception {
         VBox loginPane = new VBox(10);
-        HBox inputPane = new HBox(10);
+        HBox inputPaneUpper = new HBox(10);
+        HBox inputPaneLower = new HBox(10);
         loginPane.setPadding(new Insets(10));
         
         TextField usernameInput = new TextField();     
         usernameInput.setPrefWidth(150);
         
-        inputPane.getChildren().addAll(new Label("username:"), usernameInput);
+        TextField passwordInput = new TextField();
+        passwordInput.setPrefWidth(150);
+        
+        inputPaneUpper.getChildren().addAll(new Label("username:"), usernameInput);
+        inputPaneLower.getChildren().addAll(new Label("password:"), passwordInput);
         Label exerciseLabel = new Label("ExerciseApp");
+        
         Button toRegistrationButton = new Button("create a new user");
         toRegistrationButton.setPadding(new Insets(10));
         
-        loginPane.getChildren().addAll(exerciseLabel, inputPane, toRegistrationButton);       
+        Button loginButton = new Button("login");
+        loginButton.setPadding(new Insets(10));
+        
+        loginPane.getChildren().addAll(exerciseLabel, inputPaneUpper, inputPaneLower, loginButton, toRegistrationButton);       
         loginPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         loginScene = new Scene(loginPane, 420, 300);  
          
@@ -64,17 +73,22 @@ public class ExerciseGeneratorUi extends Application {
         
         toRegistrationButton.setOnAction(e->{
             VBox registerPane = new VBox(10);
-            HBox inputPane2 = new HBox(10);            
+            HBox inputPaneUpper2 = new HBox(10);   
+            HBox inputPaneLower2 = new HBox(10);
             registerPane.setPadding(new Insets(10));
             
             TextField usernameRegInput = new TextField();           
             usernameRegInput.setPrefWidth(150);
             
-            inputPane2.getChildren().addAll(new Label("username:"), usernameRegInput);
+            TextField passwordRegInput = new TextField();
+            passwordRegInput.setPrefWidth(150);
+            
+            inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput);
+            inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
             Label registerLabel = new Label("Registration");
             
             
-            registerPane.getChildren().addAll(registerLabel, inputPane2, registerButton);       
+            registerPane.getChildren().addAll(registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
             registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
             
             registerScene = new Scene(registerPane, 420, 300);
@@ -83,7 +97,7 @@ public class ExerciseGeneratorUi extends Application {
         });  
         
         registerButton.setOnAction(e->{
-            
+            window.setScene(loginScene);
         });
         
         
