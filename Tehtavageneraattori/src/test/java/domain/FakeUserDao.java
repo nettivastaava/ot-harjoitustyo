@@ -11,7 +11,7 @@ public class FakeUserDao implements UserDao {
      List<User> users = new ArrayList<>();
 
     public FakeUserDao() {
-        users.add(new User("Heimoo", "kissa"));
+        users.add(new User("Heimo", "kissa"));
     }
     
     @Override
@@ -36,7 +36,12 @@ public class FakeUserDao implements UserDao {
 
     @Override
     public User findByUsernameAndPassword(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (User u: users) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null;
     }
     
 }
