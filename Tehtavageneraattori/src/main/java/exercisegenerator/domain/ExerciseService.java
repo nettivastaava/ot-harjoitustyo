@@ -19,17 +19,17 @@ public class ExerciseService {
     }
     
     public boolean createUser(User user)  {   
-        System.out.println("1");
+        
         if (userDao.findByUsername(user.getUsername()) != null) {
             return false;
         }
-        System.out.println("2");
+        
         try {
             userDao.create(user);
         } catch(Exception e) {
             return false;
         }
-        System.out.println("3");
+        
         return true;
     }
 }

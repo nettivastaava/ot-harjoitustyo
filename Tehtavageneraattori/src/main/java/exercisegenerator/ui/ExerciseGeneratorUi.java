@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package exercisegenerator.ui;
 
 import exercisegenerator.dao.FileUserDao;
@@ -17,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -29,10 +25,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-/**
- *
- * @author vaxandst
- */
 public class ExerciseGeneratorUi extends Application {
     private Scene loginScene;
     private Scene registerScene;
@@ -62,7 +54,7 @@ public class ExerciseGeneratorUi extends Application {
         TextField usernameInput = new TextField();     
         usernameInput.setPrefWidth(150);
         
-        TextField passwordInput = new TextField();
+        PasswordField passwordInput = new PasswordField();
         passwordInput.setPrefWidth(150);
         
         inputPaneUpper.getChildren().addAll(new Label("username:"), usernameInput);
@@ -88,7 +80,7 @@ public class ExerciseGeneratorUi extends Application {
         TextField usernameRegInput = new TextField();           
         usernameRegInput.setPrefWidth(150);
             
-        TextField passwordRegInput = new TextField();
+        PasswordField passwordRegInput = new PasswordField();
         passwordRegInput.setPrefWidth(150);
         
         toRegistrationButton.setOnAction(e->{
@@ -119,8 +111,7 @@ public class ExerciseGeneratorUi extends Application {
                 System.out.println("success");
                 window.setScene(loginScene);
             } else
-                System.out.println("username is not available");
-                      
+                System.out.println("username is not available");                    
         }); 
     }
     

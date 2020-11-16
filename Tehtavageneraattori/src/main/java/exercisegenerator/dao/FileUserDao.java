@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package exercisegenerator.dao;
 
 import java.io.File;
@@ -29,8 +25,7 @@ public class FileUserDao implements UserDao {
         } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
-        }
-        
+        }       
     }
     
     private void save() throws Exception{

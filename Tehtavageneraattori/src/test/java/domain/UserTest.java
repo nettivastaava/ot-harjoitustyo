@@ -17,14 +17,6 @@ public class UserTest {
     }
     
     @Test
-    public void usersAreNotEqualsWhenPasswordsAreNotEqual() {
-        User user1 = new User("Heimo", "kissa");
-        User user2 = new User("Heimo", "koira");
-        
-        assertFalse(user1.equals(user2));
-    }
-    
-    @Test
     public void usersAreNotEqualsWhenUsernamesAreNotEqual() {
         User user1 = new User("Heimo", "kissa");
         User user2 = new User("Huima", "kissa");
