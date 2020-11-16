@@ -20,8 +20,24 @@ public class ExerciseServiceUserTest {
     }
     
     @Test
-    public void userRegistrationFailsIfNameIsNotUnique() throws Exception {
+    public void userRegistrationFailsIfUsernameIsNotUnique() throws Exception {
         User testUser = new User("Heimo", "koira");
+        
+        boolean result = exService.createUser(testUser);
+        assertFalse(result);
+    }
+    
+    @Test
+    public void userRegistrationSucceedsWhenUsernameIsValid() throws Exception {
+        User testUser = new User("Huima", "koira");
+        
+        boolean result = exService.createUser(testUser);
+        assertTrue(result);
+    }
+    
+    @Test
+    public void userRegistrationFailsWithMalformedCredentials() throws Exception {
+        User testUser = new User("Mo", "123");
         
         boolean result = exService.createUser(testUser);
         assertFalse(result);
