@@ -41,4 +41,12 @@ public class ExerciseService {
         }
         return false;
     }
+
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+    
+    public void logout() {
+        loggedUser=null;
+    }
 }

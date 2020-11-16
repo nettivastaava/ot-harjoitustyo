@@ -84,6 +84,14 @@ public class ExerciseGeneratorUi extends Application {
         passwordRegInput.setPrefWidth(150);
         
         VBox exercisesPane = new VBox();
+        HBox logoutPane = new HBox();
+        Button logoutButton = new Button("logout");
+        
+        logoutPane.getChildren().addAll(exerciseLabel, logoutButton);
+        exercisesPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
+        exercisesPane.getChildren().addAll(logoutPane);
+        
         exercisesScene = new Scene(exercisesPane, 420, 300);
         
         loginButton.setOnAction(e->{
@@ -94,6 +102,11 @@ public class ExerciseGeneratorUi extends Application {
             } else {
                 System.out.println("wrong credentials");
             }
+        });
+        
+        logoutButton.setOnAction(e->{
+            exService.logout();
+            window.setScene(loginScene);
         });
         
         toRegistrationButton.setOnAction(e->{
