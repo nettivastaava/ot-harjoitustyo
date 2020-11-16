@@ -83,6 +83,19 @@ public class ExerciseGeneratorUi extends Application {
         PasswordField passwordRegInput = new PasswordField();
         passwordRegInput.setPrefWidth(150);
         
+        VBox exercisesPane = new VBox();
+        exercisesScene = new Scene(exercisesPane, 420, 300);
+        
+        loginButton.setOnAction(e->{
+            String username = usernameInput.getText();
+            String password = passwordInput.getText();
+            if (exService.login(username, password)) {
+                window.setScene(exercisesScene);
+            } else {
+                System.out.println("wrong credentials");
+            }
+        });
+        
         toRegistrationButton.setOnAction(e->{
             VBox registerPane = new VBox(10);
             HBox inputPaneUpper2 = new HBox(10);   

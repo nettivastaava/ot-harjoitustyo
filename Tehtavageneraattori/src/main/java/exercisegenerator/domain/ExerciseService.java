@@ -32,4 +32,13 @@ public class ExerciseService {
         
         return true;
     }
+    
+    public boolean login(String username, String password) {
+        User user = userDao.findByUsernameAndPassword(username, password);
+        if (user!=null) {
+            loggedUser=user;
+            return true;
+        }
+        return false;
+    }
 }

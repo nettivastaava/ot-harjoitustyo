@@ -25,7 +25,8 @@ public class FileUserDao implements UserDao {
         } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
-        }       
+        }
+        
     }
     
     private void save() throws Exception{
@@ -55,5 +56,15 @@ public class FileUserDao implements UserDao {
         users.add(user);
         save();
         return user;
+    }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        for (User u: users) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null;
     }
 }
