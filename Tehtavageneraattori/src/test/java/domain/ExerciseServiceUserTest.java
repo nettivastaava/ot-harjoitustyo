@@ -36,7 +36,7 @@ public class ExerciseServiceUserTest {
     }
     
     @Test
-    public void userRegistrationFailsWithMalformedCredentials() throws Exception {
+    public void userRegistrationFailsWithInvalidCredentials() throws Exception {
         User testUser = new User("Mo", "123");
         
         boolean result = exService.createUser(testUser);

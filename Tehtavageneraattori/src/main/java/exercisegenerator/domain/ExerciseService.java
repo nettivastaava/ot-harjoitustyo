@@ -20,13 +20,13 @@ public class ExerciseService {
     
     public boolean createUser(User user)  {   
         
-        if (userDao.findByUsername(user.getUsername()) != null || user.getUsername()==null) {
+        if (userDao.findByUsername(user.getUsername()) != null || user.getUsername() == null) {
             return false;
         }
         
         try {
             userDao.create(user);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
         
@@ -35,8 +35,8 @@ public class ExerciseService {
     
     public boolean login(String username, String password) {
         User user = userDao.findByUsernameAndPassword(username, password);
-        if (user!=null) {
-            loggedUser=user;
+        if (user != null) {
+            loggedUser = user;
             return true;
         }
         return false;
@@ -47,6 +47,6 @@ public class ExerciseService {
     }
     
     public void logout() {
-        loggedUser=null;
+        loggedUser = null;
     }
 }

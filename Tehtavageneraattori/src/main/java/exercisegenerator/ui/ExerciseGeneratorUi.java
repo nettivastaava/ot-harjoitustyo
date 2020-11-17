@@ -94,7 +94,7 @@ public class ExerciseGeneratorUi extends Application {
         
         exercisesScene = new Scene(exercisesPane, 420, 300);
         
-        loginButton.setOnAction(e->{
+        loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
             if (exService.login(username, password)) {
@@ -104,12 +104,12 @@ public class ExerciseGeneratorUi extends Application {
             }
         });
         
-        logoutButton.setOnAction(e->{
+        logoutButton.setOnAction(e-> {
             exService.logout();
             window.setScene(loginScene);
         });
         
-        toRegistrationButton.setOnAction(e->{
+        toRegistrationButton.setOnAction(e-> {
             VBox registerPane = new VBox(10);
             HBox inputPaneUpper2 = new HBox(10);   
             HBox inputPaneLower2 = new HBox(10);
@@ -126,18 +126,19 @@ public class ExerciseGeneratorUi extends Application {
             window.setScene(registerScene);         
         });  
         
-        registerButton.setOnAction(e->{
+        registerButton.setOnAction(e-> {
             String username = usernameRegInput.getText();
             String password = passwordRegInput.getText();
             User newUser = new User(username, password);
             
-            if (newUser.getUsername()==null) {
+            if (newUser.getUsername() == null) {
                 System.out.println("username or password is too short");
             } else if (exService.createUser(newUser)) {
                 System.out.println("success");
                 window.setScene(loginScene);
-            } else
-                System.out.println("username is not available");                    
+            } else {
+                System.out.println("username is not available");       
+            }
         }); 
     }
     

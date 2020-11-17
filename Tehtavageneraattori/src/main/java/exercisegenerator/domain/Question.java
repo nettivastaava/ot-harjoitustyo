@@ -9,7 +9,7 @@ public class Question {
     
     public Question(String question, String answer) {
         this.question = question;
-        this.hint=null;
+        this.hint = null;
         this.answer = answer;
     }
     
