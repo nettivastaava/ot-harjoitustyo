@@ -12,5 +12,12 @@ public class ExerciseSet {
         this.name = name;
         this.questions = questions;
     }
-   
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }  
 }

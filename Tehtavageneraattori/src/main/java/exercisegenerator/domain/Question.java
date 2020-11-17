@@ -18,6 +18,10 @@ public class Question {
         this.hint = hint;
         this.answer = answer;
     }
+    
+    public boolean answerQuestion(String attempt) {
+        return this.answer.equals(attempt);
+    }
 
     public String getQuestion() {
         return question;

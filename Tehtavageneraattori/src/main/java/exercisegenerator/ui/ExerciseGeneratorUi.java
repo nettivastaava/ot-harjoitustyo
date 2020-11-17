@@ -87,12 +87,33 @@ public class ExerciseGeneratorUi extends Application {
         HBox logoutPane = new HBox();
         Button logoutButton = new Button("logout");
         
-        logoutPane.getChildren().addAll(exerciseLabel, logoutButton);
+        Button createExerciseButton = new Button("create new");
+        
+        logoutPane.getChildren().addAll(exerciseLabel, createExerciseButton, logoutButton);
         exercisesPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
         exercisesPane.getChildren().addAll(logoutPane);
         
         exercisesScene = new Scene(exercisesPane, 420, 300);
+        
+        VBox newExercisePane = new VBox();
+        HBox questionPane = new HBox();
+        HBox answerPane = new HBox();
+        HBox namePane = new HBox();
+        
+        TextField exQuestion = new TextField();
+        TextField exAnswer = new TextField();
+        TextField setName = new TextField();
+        
+        Button addExercise = new Button("add");
+        Button createSet = new Button("create");
+        
+        questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
+        answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
+        namePane.getChildren().addAll(new Label("Set name:"), setName, createSet);
+        
+        newExercisePane.getChildren().addAll(questionPane, answerPane, addExercise, namePane);
+        newExercisePane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
         loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
@@ -140,6 +161,11 @@ public class ExerciseGeneratorUi extends Application {
                 System.out.println("username is not available");       
             }
         }); 
+        
+        createExerciseButton.setOnAction(e-> {
+            createExerciseScene = new Scene(newExercisePane, 420, 300);
+            window.setScene(createExerciseScene);
+        });
     }
     
     public static void main(String[] args) {
