@@ -8,10 +8,12 @@ import exercisegenerator.domain.Question;
 import exercisegenerator.domain.User;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,6 +27,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -37,11 +41,11 @@ public class ExerciseGeneratorUi extends Application {
     
     private ExerciseService exService;
     private ArrayList<Question> toBeAdded;
+    private VBox exerciseSets;
     
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();  
-        properties.load(new FileInputStream("config.properties"));
         properties.load(new FileInputStream("config.properties"));
 
         String userFile = properties.getProperty("userFile");
@@ -49,8 +53,34 @@ public class ExerciseGeneratorUi extends Application {
         FileUserDao userDao = new FileUserDao(userFile);  
         FileExerciseSetDao exerciseDao = new FileExerciseSetDao(exerciseFile);
         
-        exService = new ExerciseService(null, userDao);
+        exService = new ExerciseService(exerciseDao, userDao);
         toBeAdded = new ArrayList<>();
+    }
+    
+    public Node createExerciseNode(ExerciseSet ex) {
+        HBox box = new HBox(10);
+        Label label  = new Label(ex.getName());
+        label.setMinHeight(28);
+        Button button = new Button("Solve");
+        button.setOnAction(e-> {
+            
+        });
+                
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+        box.setPadding(new Insets(0,5,0,5));
+
+        box.getChildren().addAll(label, spacer, button);
+        return box;
+    }
+    
+    public void updateExercises() {
+        exerciseSets.getChildren().clear();     
+
+        List<ExerciseSet> currentSets = exService.exercisesList();
+        currentSets.forEach(set->{
+            exerciseSets.getChildren().add(createExerciseNode(set));
+        });     
     }
     
     @Override
@@ -84,6 +114,19 @@ public class ExerciseGeneratorUi extends Application {
         window.show();
         
         Button registerButton = new Button("create");
+        
+        ScrollPane scrollPane = new ScrollPane();
+        BorderPane mainPane = new BorderPane(scrollPane);
+        
+        HBox menuPane = new HBox(10);       
+        
+        Region menuSpacer = new Region();
+        HBox.setHgrow(menuSpacer, Priority.ALWAYS);
+        Button logoutButton = new Button("logout");
+        Button createExerciseButton = new Button("create new");
+
+        menuPane.getChildren().addAll(exerciseLabel, menuSpacer, logoutButton);
+        
         registerButton.setPadding(new Insets(10));
         
         TextField usernameRegInput = new TextField();           
@@ -92,23 +135,26 @@ public class ExerciseGeneratorUi extends Application {
         PasswordField passwordRegInput = new PasswordField();
         passwordRegInput.setPrefWidth(150);
         
-        VBox exercisesPane = new VBox();
-        HBox logoutPane = new HBox();
-        Button logoutButton = new Button("logout");
+        exerciseSets = new VBox(10);
+        exerciseSets.setMaxWidth(280);
+        exerciseSets.setMinWidth(280);
+        updateExercises();
         
-        Button createExerciseButton = new Button("create new");
+        scrollPane.setContent(exerciseSets);
+        mainPane.setBottom(createExerciseButton);
+        mainPane.setTop(menuPane);
+  
+               
+        mainPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
-        logoutPane.getChildren().addAll(exerciseLabel, createExerciseButton, logoutButton);
-        exercisesPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
-        exercisesPane.getChildren().addAll(logoutPane);
         
-        exercisesScene = new Scene(exercisesPane, 420, 300);
+        exercisesScene = new Scene(mainPane, 420, 300);
         
-        VBox newExercisePane = new VBox();
-        HBox questionPane = new HBox();
-        HBox answerPane = new HBox();
-        HBox namePane = new HBox();
+        VBox newExercisePane = new VBox(10);
+        HBox questionPane = new HBox(10);
+        HBox answerPane = new HBox(10);
+        HBox namePane = new HBox(10);
         
         TextField exQuestion = new TextField();
         TextField exAnswer = new TextField();
@@ -128,6 +174,7 @@ public class ExerciseGeneratorUi extends Application {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
             if (exService.login(username, password)) {
+                updateExercises();
                 window.setScene(exercisesScene);
             } else {
                 System.out.println("wrong credentials");

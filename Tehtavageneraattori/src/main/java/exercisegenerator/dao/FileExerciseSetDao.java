@@ -34,8 +34,7 @@ public class FileExerciseSetDao implements ExerciseSetDao {
         } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
-        }
-        
+        }    
     }
     
     private void save() throws Exception {

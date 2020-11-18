@@ -8,6 +8,7 @@ package exercisegenerator.domain;
 import exercisegenerator.dao.ExerciseSetDao;
 import exercisegenerator.dao.UserDao;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExerciseService {
     private ExerciseSetDao exerciseSetDao;
@@ -32,6 +33,14 @@ public class ExerciseService {
         }
         
         return true;
+    }
+    
+    public List<ExerciseSet> exercisesList() {
+        if (loggedUser == null) {
+            return new ArrayList<>();
+        }
+        
+        return exerciseSetDao.getAll();
     }
     
     public boolean createExerciseSet(ExerciseSet exSet) {

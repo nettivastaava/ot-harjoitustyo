@@ -5,10 +5,7 @@
  */
 package exercisegenerator.dao;
 
-/**
- *
- * @author vaxandst
- */
+
 public interface QuestionDao {
     
 }
