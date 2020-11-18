@@ -8,4 +8,5 @@
 | 11.11.2020 | 3 | UserDaon toteutus ja ensimmäiset testit |
 | 16.11.2020 | 2 | Rekisteröinnin ja kirjautumisen toteutus |
 | 16.11.2020 | 2 | Rekisteröinnin ja kirjautumisen testit/pieniä parannuksia |
-| yht | 14 | |
+| 18.11.2020 | 6 | Tehtäväsarjan luominen ja bugien korjausta |
+| yht | 20 | |
