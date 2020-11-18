@@ -1,9 +1,13 @@
 package exercisegenerator.ui;
 
+import exercisegenerator.dao.FileExerciseSetDao;
 import exercisegenerator.dao.FileUserDao;
 import exercisegenerator.domain.ExerciseService;
+import exercisegenerator.domain.ExerciseSet;
+import exercisegenerator.domain.Question;
 import exercisegenerator.domain.User;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Properties;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -22,7 +26,6 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 public class ExerciseGeneratorUi extends Application {
@@ -33,15 +36,21 @@ public class ExerciseGeneratorUi extends Application {
     private Scene solveExerciseScene;
     
     private ExerciseService exService;
+    private ArrayList<Question> toBeAdded;
     
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();  
         properties.load(new FileInputStream("config.properties"));
+        properties.load(new FileInputStream("config.properties"));
 
         String userFile = properties.getProperty("userFile");
-        FileUserDao userDao = new FileUserDao(userFile);     
+        String exerciseFile = properties.getProperty("exerciseFile");
+        FileUserDao userDao = new FileUserDao(userFile);  
+        FileExerciseSetDao exerciseDao = new FileExerciseSetDao(exerciseFile);
+        
         exService = new ExerciseService(null, userDao);
+        toBeAdded = new ArrayList<>();
     }
     
     @Override
@@ -165,6 +174,21 @@ public class ExerciseGeneratorUi extends Application {
         createExerciseButton.setOnAction(e-> {
             createExerciseScene = new Scene(newExercisePane, 420, 300);
             window.setScene(createExerciseScene);
+        });
+        
+        addExercise.setOnAction(e-> {
+            toBeAdded.add(new Question(exQuestion.getText(), exAnswer.getText()));
+            exQuestion.setText("");
+            exAnswer.setText("");
+        });
+        
+        createSet.setOnAction(e-> {
+            String exerciseSetName = setName.getText();
+            if (exService.createExerciseSet(new ExerciseSet(exerciseSetName, toBeAdded))) {
+                toBeAdded.clear();
+                setName.setText("");
+                window.setScene(exercisesScene);
+            }
         });
     }
     
