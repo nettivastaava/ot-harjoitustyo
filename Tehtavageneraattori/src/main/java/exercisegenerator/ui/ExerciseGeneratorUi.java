@@ -42,6 +42,9 @@ public class ExerciseGeneratorUi extends Application {
     private ExerciseService exService;
     private ArrayList<Question> toBeAdded;
     private VBox exerciseSets;
+    private VBox answerSheet;
+    private HBox answerBox;
+    private HBox questionBox;
     
     @Override
     public void init() throws Exception {
@@ -53,8 +56,22 @@ public class ExerciseGeneratorUi extends Application {
         FileUserDao userDao = new FileUserDao(userFile);  
         FileExerciseSetDao exerciseDao = new FileExerciseSetDao(exerciseFile);
         
+        answerSheet = new VBox(10);
+        questionBox = new HBox(10);
+        answerBox = new HBox(10);
         exService = new ExerciseService(exerciseDao, userDao);
         toBeAdded = new ArrayList<>();
+    }
+    
+    public void solveExercise(ExerciseSet ex) {
+        questionBox.getChildren().clear();
+        answerBox.getChildren().clear();
+        for (Question q: ex.getQuestions()) {
+            
+        }
+        
+        
+        
     }
     
     public Node createExerciseNode(ExerciseSet ex) {
@@ -64,6 +81,7 @@ public class ExerciseGeneratorUi extends Application {
         Button button = new Button("Solve");
         button.setOnAction(e-> {
             
+            solveExercise(ex);          
         });
         System.out.println(label);
         Region spacer = new Region();
@@ -75,7 +93,8 @@ public class ExerciseGeneratorUi extends Application {
     }
     
     public void updateExercises() {
-        exerciseSets.getChildren().clear();     
+        exerciseSets.getChildren().clear();    
+        exerciseSets.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
 
         List<ExerciseSet> currentSets = exService.exercisesList();
         currentSets.forEach(set-> {
@@ -116,6 +135,7 @@ public class ExerciseGeneratorUi extends Application {
         Button registerButton = new Button("create");
         
         ScrollPane scrollPane = new ScrollPane();
+        
         BorderPane mainPane = new BorderPane(scrollPane);
         
         HBox menuPane = new HBox(10);       
@@ -127,7 +147,7 @@ public class ExerciseGeneratorUi extends Application {
         Button createExerciseButton = new Button("create new");
        
         menuPane.getChildren().addAll(exerciseLabel, menuSpacer, logoutButton);
-        
+            
         registerButton.setPadding(new Insets(10));
         
         TextField usernameRegInput = new TextField();           
@@ -137,17 +157,18 @@ public class ExerciseGeneratorUi extends Application {
         passwordRegInput.setPrefWidth(150);
         
         exerciseSets = new VBox(10);
-        exerciseSets.setMaxWidth(280);
-        exerciseSets.setMinWidth(280);
+        exerciseSets.setMaxWidth(300);
+        exerciseSets.setMinWidth(300);
         updateExercises();
         
         scrollPane.setContent(exerciseSets);
+        scrollPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         mainPane.setBottom(createExerciseButton);
         mainPane.setTop(menuPane);
                 
         mainPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
                 
-        exercisesScene = new Scene(mainPane, 420, 300);
+        exercisesScene = new Scene(mainPane, 420, 300, Color.KHAKI);
         
         VBox newExercisePane = new VBox(10);
         HBox questionPane = new HBox(10);
@@ -183,6 +204,9 @@ public class ExerciseGeneratorUi extends Application {
         registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
             
         registerScene = new Scene(registerPane, 420, 300);
+        
+        answerSheet.getChildren().addAll(questionBox, answerBox);
+        solveExerciseScene = new Scene(answerSheet, 420, 300);
         
         loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
