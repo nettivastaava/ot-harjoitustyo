@@ -44,12 +44,12 @@ public class ExerciseService {
     }
     
     public boolean createExerciseSet(ExerciseSet exSet) {
-        if (exSet.getQuestions().size()<4) {
+        if (exSet.getQuestions().size() < 4) {
             return false;
         } 
         
         try {
-            exerciseSetDao.create(exSet );
+            exerciseSetDao.create(exSet);
         } catch (Exception e) {
             return false;
         }

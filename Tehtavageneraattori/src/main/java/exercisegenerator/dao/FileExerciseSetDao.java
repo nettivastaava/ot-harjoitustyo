@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package exercisegenerator.dao;
 
 import exercisegenerator.domain.ExerciseSet;
@@ -26,8 +22,8 @@ public class FileExerciseSetDao implements ExerciseSetDao {
                 String[] parts = reader.nextLine().split(";");
                 String exName = parts[0];
                 ArrayList<Question> questions = new ArrayList<>();
-                for(int i=1;i<parts.length;i+=2) {
-                    questions.add(new Question(parts[i], parts[i+1]));
+                for (int i = 1; i < parts.length; i += 2) {
+                    questions.add(new Question(parts[i], parts[i + 1]));
                 }
                 exercises.add(new ExerciseSet(exName, questions));
             }
@@ -44,7 +40,9 @@ public class FileExerciseSetDao implements ExerciseSetDao {
                 for (Question q: exSet.getQuestions()) {
                     writer.write(";" + q.getQuestion() + ";" + q.getAnswer());
                 }
+                writer.write("\n");
             }
+            
         } 
     }
 

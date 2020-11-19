@@ -9,7 +9,7 @@ public class ExerciseSet {
     private ArrayList<Question> questions;
     
     public ExerciseSet() {
-        this.name=null;
+        this.name = null;
         this.questions = new ArrayList<Question>();
     }
     

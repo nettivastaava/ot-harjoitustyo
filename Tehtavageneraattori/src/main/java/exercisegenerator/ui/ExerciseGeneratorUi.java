@@ -65,10 +65,10 @@ public class ExerciseGeneratorUi extends Application {
         button.setOnAction(e-> {
             
         });
-                
+        System.out.println(label);
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
-        box.setPadding(new Insets(0,5,0,5));
+        box.setPadding(new Insets(0, 5, 0, 5));
 
         box.getChildren().addAll(label, spacer, button);
         return box;
@@ -78,7 +78,7 @@ public class ExerciseGeneratorUi extends Application {
         exerciseSets.getChildren().clear();     
 
         List<ExerciseSet> currentSets = exService.exercisesList();
-        currentSets.forEach(set->{
+        currentSets.forEach(set-> {
             exerciseSets.getChildren().add(createExerciseNode(set));
         });     
     }
@@ -123,9 +123,12 @@ public class ExerciseGeneratorUi extends Application {
         Region menuSpacer = new Region();
         HBox.setHgrow(menuSpacer, Priority.ALWAYS);
         Button logoutButton = new Button("logout");
+        VBox createExPane = new VBox(10);
         Button createExerciseButton = new Button("create new");
+        createExPane.getChildren().addAll(createExerciseButton);
+        createExerciseButton.setMaxSize(50, 100);
 
-        menuPane.getChildren().addAll(exerciseLabel, menuSpacer, logoutButton);
+        menuPane.getChildren().addAll(exerciseLabel, menuSpacer, createExPane);
         
         registerButton.setPadding(new Insets(10));
         
@@ -143,12 +146,9 @@ public class ExerciseGeneratorUi extends Application {
         scrollPane.setContent(exerciseSets);
         mainPane.setBottom(createExerciseButton);
         mainPane.setTop(menuPane);
-  
-               
+                
         mainPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
-        
-        
-        
+                
         exercisesScene = new Scene(mainPane, 420, 300);
         
         VBox newExercisePane = new VBox(10);
@@ -170,6 +170,22 @@ public class ExerciseGeneratorUi extends Application {
         newExercisePane.getChildren().addAll(questionPane, answerPane, addExercise, namePane);
         newExercisePane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
+        createExerciseScene = new Scene(newExercisePane, 420, 300);
+        
+        VBox registerPane = new VBox(10);
+        HBox inputPaneUpper2 = new HBox(10);   
+        HBox inputPaneLower2 = new HBox(10);
+        registerPane.setPadding(new Insets(10));
+                       
+        inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput);
+        inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
+        Label registerLabel = new Label("Registration");
+                        
+        registerPane.getChildren().addAll(registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
+        registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+            
+        registerScene = new Scene(registerPane, 420, 300);
+        
         loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
@@ -187,19 +203,7 @@ public class ExerciseGeneratorUi extends Application {
         });
         
         toRegistrationButton.setOnAction(e-> {
-            VBox registerPane = new VBox(10);
-            HBox inputPaneUpper2 = new HBox(10);   
-            HBox inputPaneLower2 = new HBox(10);
-            registerPane.setPadding(new Insets(10));
-                       
-            inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput);
-            inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
-            Label registerLabel = new Label("Registration");
-                        
-            registerPane.getChildren().addAll(registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
-            registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
             
-            registerScene = new Scene(registerPane, 420, 300);
             window.setScene(registerScene);         
         });  
         
@@ -219,7 +223,7 @@ public class ExerciseGeneratorUi extends Application {
         }); 
         
         createExerciseButton.setOnAction(e-> {
-            createExerciseScene = new Scene(newExercisePane, 420, 300);
+            
             window.setScene(createExerciseScene);
         });
         
@@ -234,6 +238,7 @@ public class ExerciseGeneratorUi extends Application {
             if (exService.createExerciseSet(new ExerciseSet(exerciseSetName, toBeAdded))) {
                 toBeAdded.clear();
                 setName.setText("");
+                updateExercises();
                 window.setScene(exercisesScene);
             }
         });
