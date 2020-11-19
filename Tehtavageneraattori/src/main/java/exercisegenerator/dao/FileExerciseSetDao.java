@@ -41,8 +41,7 @@ public class FileExerciseSetDao implements ExerciseSetDao {
                     writer.write(";" + q.getQuestion() + ";" + q.getAnswer());
                 }
                 writer.write("\n");
-            }
-            
+            }           
         } 
     }
 
@@ -50,12 +49,10 @@ public class FileExerciseSetDao implements ExerciseSetDao {
         return exercises;
     }
 
-
     public ExerciseSet findOne(String setName) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+        
     public ExerciseSet create(ExerciseSet exSet) throws Exception {
         exercises.add(exSet);
         save();

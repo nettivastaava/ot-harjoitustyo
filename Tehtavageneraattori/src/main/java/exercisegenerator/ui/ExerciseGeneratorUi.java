@@ -123,12 +123,10 @@ public class ExerciseGeneratorUi extends Application {
         Region menuSpacer = new Region();
         HBox.setHgrow(menuSpacer, Priority.ALWAYS);
         Button logoutButton = new Button("logout");
-        VBox createExPane = new VBox(10);
+   
         Button createExerciseButton = new Button("create new");
-        createExPane.getChildren().addAll(createExerciseButton);
-        createExerciseButton.setMaxSize(50, 100);
-
-        menuPane.getChildren().addAll(exerciseLabel, menuSpacer, createExPane);
+       
+        menuPane.getChildren().addAll(exerciseLabel, menuSpacer, logoutButton);
         
         registerButton.setPadding(new Insets(10));
         
@@ -216,14 +214,15 @@ public class ExerciseGeneratorUi extends Application {
                 System.out.println("username or password is too short");
             } else if (exService.createUser(newUser)) {
                 System.out.println("success");
+                usernameRegInput.setText("");
+                passwordRegInput.setText("");
                 window.setScene(loginScene);
             } else {
                 System.out.println("username is not available");       
-            }
+            }           
         }); 
         
-        createExerciseButton.setOnAction(e-> {
-            
+        createExerciseButton.setOnAction(e-> {            
             window.setScene(createExerciseScene);
         });
         

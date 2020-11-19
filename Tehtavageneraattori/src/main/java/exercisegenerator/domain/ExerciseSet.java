@@ -36,7 +36,5 @@ public class ExerciseSet {
     
     public void addQuestion(Question q) {
         this.questions.add(q);
-    }
-    
-    
+    }    
 }
