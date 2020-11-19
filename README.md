@@ -12,20 +12,13 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 ### Komentorivitoiminnot
 
 #### Käynnistys
-Sovellus käynnistetään komennolla
-  mvn compile exec:java -Dexec.mainClass=exercisegenerator.ui.ExerciseGeneratorUi
+- Sovellus käynnistetään komennolla: mvn compile exec:java -Dexec.mainClass=exercisegenerator.ui.ExerciseGeneratorUi
 
 #### Testaus
-Testit suoritetaan komennolla
-
-  mvn test
-Testikattavuusraportti luodaan komennolla
-
-  mvn test jacoco:report
+- Testit suoritetaan komennolla: mvn test
+- Testikattavuusraportti luodaan komennolla: mvn test jacoco:report
   
 #### Checkstyle
-Tiedostoon checkstyle.xml määrittelemät tarkistukset suoritetaan komennolla
-
-  mvn jxr:jxr checkstyle:checkstyle
+- Tiedostoon checkstyle.xml määrittelemät tarkistukset suoritetaan komennolla: mvn jxr:jxr checkstyle:checkstyle
 
 
