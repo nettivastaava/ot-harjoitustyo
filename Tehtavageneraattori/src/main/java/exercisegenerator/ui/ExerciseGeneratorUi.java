@@ -1,6 +1,7 @@
 package exercisegenerator.ui;
 
 import exercisegenerator.dao.FileExerciseSetDao;
+import exercisegenerator.dao.FileQuestionDao;
 import exercisegenerator.dao.FileUserDao;
 import exercisegenerator.domain.ExerciseService;
 import exercisegenerator.domain.ExerciseSet;
@@ -53,35 +54,36 @@ public class ExerciseGeneratorUi extends Application {
 
         String userFile = properties.getProperty("userFile");
         String exerciseFile = properties.getProperty("exerciseFile");
+        String questionFile = properties.getProperty("questionFile");
+        
         FileUserDao userDao = new FileUserDao(userFile);  
-        FileExerciseSetDao exerciseDao = new FileExerciseSetDao(exerciseFile);
+        FileExerciseSetDao exerciseDao = new FileExerciseSetDao(exerciseFile, questionFile);
+        FileQuestionDao questionDao = new FileQuestionDao(questionFile);
         
         answerSheet = new VBox(10);
         questionBox = new HBox(10);
         answerBox = new HBox(10);
-        exService = new ExerciseService(exerciseDao, userDao);
+        exService = new ExerciseService(exerciseDao, userDao, questionDao);
         toBeAdded = new ArrayList<>();
     }
     
-    public void solveExercise(ExerciseSet ex) {
+    public void solveExercise(ExerciseSet ex, Stage window) {
         questionBox.getChildren().clear();
         answerBox.getChildren().clear();
         for (Question q: ex.getQuestions()) {
-            
+            window.setScene(solveExerciseScene);
         }
-        
-        
-        
+           
     }
     
-    public Node createExerciseNode(ExerciseSet ex) {
+    public Node createExerciseNode(ExerciseSet ex, Stage window) {
         HBox box = new HBox(10);
         Label label  = new Label(ex.getName());
         label.setMinHeight(28);
         Button button = new Button("Solve");
         button.setOnAction(e-> {
             
-            solveExercise(ex);          
+            solveExercise(ex, window);          
         });
         System.out.println(label);
         Region spacer = new Region();
@@ -92,13 +94,13 @@ public class ExerciseGeneratorUi extends Application {
         return box;
     }
     
-    public void updateExercises() {
+    public void updateExercises(Stage window) {
         exerciseSets.getChildren().clear();    
         exerciseSets.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
 
         List<ExerciseSet> currentSets = exService.exercisesList();
         currentSets.forEach(set-> {
-            exerciseSets.getChildren().add(createExerciseNode(set));
+            exerciseSets.getChildren().add(createExerciseNode(set, window));
         });     
     }
     
@@ -159,7 +161,7 @@ public class ExerciseGeneratorUi extends Application {
         exerciseSets = new VBox(10);
         exerciseSets.setMaxWidth(300);
         exerciseSets.setMinWidth(300);
-        updateExercises();
+        updateExercises(window);
         
         scrollPane.setContent(exerciseSets);
         scrollPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -206,13 +208,14 @@ public class ExerciseGeneratorUi extends Application {
         registerScene = new Scene(registerPane, 420, 300);
         
         answerSheet.getChildren().addAll(questionBox, answerBox);
+        answerSheet.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         solveExerciseScene = new Scene(answerSheet, 420, 300);
         
         loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
             if (exService.login(username, password)) {
-                updateExercises();
+                updateExercises(window);
                 window.setScene(exercisesScene);
             } else {
                 System.out.println("wrong credentials");
@@ -224,8 +227,7 @@ public class ExerciseGeneratorUi extends Application {
             window.setScene(loginScene);
         });
         
-        toRegistrationButton.setOnAction(e-> {
-            
+        toRegistrationButton.setOnAction(e-> {          
             window.setScene(registerScene);         
         });  
         
@@ -251,17 +253,25 @@ public class ExerciseGeneratorUi extends Application {
         });
         
         addExercise.setOnAction(e-> {
-            toBeAdded.add(new Question(exQuestion.getText(), exAnswer.getText()));
+            Question q = new Question(exQuestion.getText(), exAnswer.getText());
+            toBeAdded.add(q);
             exQuestion.setText("");
             exAnswer.setText("");
+            
         });
         
         createSet.setOnAction(e-> {
-            String exerciseSetName = setName.getText();
-            if (exService.createExerciseSet(new ExerciseSet(exerciseSetName, toBeAdded))) {
+            ExerciseSet exSet = new ExerciseSet(setName.getText(), toBeAdded);
+            exSet.setNameToQuestions();
+            for (Question q: exSet.getQuestions()) {
+                if (exService.createQuestion(q)) {
+                    continue;
+                }              
+            }
+            if (exService.createExerciseSet(exSet)) {
                 toBeAdded.clear();
                 setName.setText("");
-                updateExercises();
+                updateExercises(window);
                 window.setScene(exercisesScene);
             }
         });

@@ -36,5 +36,11 @@ public class ExerciseSet {
     
     public void addQuestion(Question q) {
         this.questions.add(q);
-    }    
+    } 
+    
+    public void setNameToQuestions() {
+        for (Question q: questions) {
+            q.setSetName(name);
+        }
+    }
 }

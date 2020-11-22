@@ -16,7 +16,7 @@ public class ExerciseServiceUserTest {
     public void setUp() {
         
         userDao = new FakeUserDao();
-        exService = new ExerciseService(null, userDao);     
+        exService = new ExerciseService(null, userDao, null);     
     }
     
     @Test

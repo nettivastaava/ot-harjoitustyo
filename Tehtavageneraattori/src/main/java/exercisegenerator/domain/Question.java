@@ -3,13 +3,13 @@ package exercisegenerator.domain;
 
 
 public class Question {
+    private String setName;
     private String question;
     private String hint;
     private String answer;
     
     public Question(String question, String answer) {
         this.question = question;
-        this.hint = null;
         this.answer = answer;
     }
     
@@ -34,5 +34,13 @@ public class Question {
     public String getAnswer() {
         return answer;
     }
-      
+
+    public String getSetName() {
+        return setName;
+    }
+    
+    public void setSetName(String setName) {
+        this.setName = setName;
+    }
+          
 } 

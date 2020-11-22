@@ -5,7 +5,11 @@
  */
 package exercisegenerator.dao;
 
+import exercisegenerator.domain.Question;
+
 
 public interface QuestionDao {
-    
+    Question create(Question q) throws Exception;
+
+    String findBySetName(String set);
 }
