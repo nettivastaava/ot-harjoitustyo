@@ -14,7 +14,10 @@ public class ExerciseSet {
     
     public ExerciseSet(String name, ArrayList<Question> questions) {
         this.name = name;
-        this.questions = questions;
+        this.questions = new ArrayList<Question>();
+        for (Question q: questions) {
+            this.questions.add(q);
+        }
     }
 
     public String getName() {

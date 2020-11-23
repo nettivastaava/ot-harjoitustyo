@@ -71,6 +71,7 @@ public class ExerciseGeneratorUi extends Application {
         questionBox.getChildren().clear();
         answerBox.getChildren().clear();
         System.out.println(ex.getQuestions().size());
+        System.out.println(ex.getName());
         for (Question q: ex.getQuestions()) {
             window.setScene(solveExerciseScene);
         }       
@@ -96,9 +97,10 @@ public class ExerciseGeneratorUi extends Application {
     
     public void updateExercises(Stage window) {
         exerciseSets.getChildren().clear();    
-        exerciseSets.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        exerciseSets.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));       
 
         List<ExerciseSet> currentSets = exService.exercisesList();
+        System.out.println("sets: "+ currentSets.size());
         currentSets.forEach(set-> {
             exerciseSets.getChildren().add(createExerciseNode(set, window));
         });     
@@ -263,6 +265,7 @@ public class ExerciseGeneratorUi extends Application {
         createSet.setOnAction(e-> {
             ExerciseSet exSet = new ExerciseSet(setName.getText(), toBeAdded);
             exSet.setNameToQuestions();
+            
             for (Question q: exSet.getQuestions()) {
                 if (exService.createQuestion(q)) {
                     continue;
@@ -272,6 +275,7 @@ public class ExerciseGeneratorUi extends Application {
                 toBeAdded.clear();
                 setName.setText("");
                 updateExercises(window);
+                
                 window.setScene(exercisesScene);
             }
         });
