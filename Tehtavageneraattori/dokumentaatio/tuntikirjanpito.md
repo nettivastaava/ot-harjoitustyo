@@ -9,4 +9,6 @@
 | 16.11.2020 | 2 | Rekisteröinnin ja kirjautumisen toteutus |
 | 16.11.2020 | 2 | Rekisteröinnin ja kirjautumisen testit/pieniä parannuksia |
 | 18.11.2020 | 6 | Tehtäväsarjan luominen ja bugien korjausta |
-| yht | 20 | |
+| 23.11.2020 | 4 | Kysymykset omaan tiedostoon + refaktorointi |
+| 23.11.2020 | 2 | QuestionDaon testit |
+| yht | 26 | |
