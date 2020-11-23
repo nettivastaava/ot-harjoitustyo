@@ -9,6 +9,8 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 
 [Työaikakirjanpito](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/arkkitehtuuri.md)
+
 ### Komentorivitoiminnot
 
 #### Käynnistys
