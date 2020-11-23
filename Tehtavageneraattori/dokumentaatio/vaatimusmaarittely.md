@@ -12,20 +12,20 @@ Sovellus koostuu viidestä eri näkymästä.
 ![Käyttöliittymäkaavio](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/kayttoliittymakaavio.jpg)
 
 ### **Ennen kirjautumista**
-    - [x] Käyttäjä voi luoda järjestelmään uuden käyttäjätunnuksen
-    - [x] Käyttäjä voi kirjautua sisään luomillaan tunnuksilla
+   - [x] Käyttäjä voi luoda järjestelmään uuden käyttäjätunnuksen
+   - [x] Käyttäjä voi kirjautua sisään luomillaan tunnuksilla
 
 ### **Kirjautumisen jälkeen**
-    - [x] Käyttäjä näkee järjestelmään lisätyt tehtäväsarjat
-    - [x] Käyttäjä voi luoda uuden tehtäväsarjan
-        - [ ] Tehtäväsarjassa on oltava vähintään 4 ja enintään 8 tehtävää
-        - [ ] Tehtävälle on mahdollista asettaa ratkaisuvihje
-    - [ ] Käyttäjä voi poistaa itse luomansa tehtäväsarjan
-    - [ ] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
-        - [ ] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
-        - [ ] Vastauksen jälkeen järjestelmä näyttää oikean vastauksen
-        - [ ] Kun jokaiseen sarjan tehtävään on vastattu, palataan tehtäväsarjat sisältävään näkymään
-    - [x] Käyttäjä voi kirjautua ulos järjestelmästä
+   - [x] Käyttäjä näkee järjestelmään lisätyt tehtäväsarjat
+   - [x] Käyttäjä voi luoda uuden tehtäväsarjan
+       - [x] Tehtäväsarjassa on oltava vähintään 4 ja enintään 8 tehtävää
+       - [ ] Tehtävälle on mahdollista asettaa ratkaisuvihje
+   - [ ] Käyttäjä voi poistaa itse luomansa tehtäväsarjan
+   - [ ] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
+       - [ ] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
+       - [ ] Vastauksen jälkeen järjestelmä näyttää oikean vastauksen
+       - [ ] Kun jokaiseen sarjan tehtävään on vastattu, palataan tehtäväsarjat sisältävään näkymään
+   - [x] Käyttäjä voi kirjautua ulos järjestelmästä
       
 ### **Jatkokehitysideoita**
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla:
