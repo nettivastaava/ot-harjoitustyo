@@ -54,7 +54,12 @@ public class FileExerciseSetDao implements ExerciseSetDao {
     }
 
     public ExerciseSet findOne(String setName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (ExerciseSet ex: exercises) {
+            if (ex.getName().equals(setName)) {
+                return ex;
+            }
+        }
+        return null;
     }
         
     public ExerciseSet create(ExerciseSet exSet) throws Exception {

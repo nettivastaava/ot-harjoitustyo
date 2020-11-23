@@ -3,7 +3,6 @@ package exercisegenerator.domain;
 
 import java.util.ArrayList;
 
-
 public class ExerciseSet {
     private String name;
     private ArrayList<Question> questions;
