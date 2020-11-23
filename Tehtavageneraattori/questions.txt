@@ -1,9 +1,0 @@
-Numeroita;123;321
-Numeroita;123;312
-Numeroita;22;44
-Numeroita;2244;444
-Numeroita;a2;44
-Aakkosia;ffff;aaa
-Aakkosia;sss;fff
-Aakkosia;www;fff
-Aakkosia;aaa;kkk
