@@ -19,7 +19,7 @@ public class FileQuestionDao implements QuestionDao {
             Scanner reader = new Scanner(new File(file));
             while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(";");
-                if (parts.length==4) {
+                if (parts.length == 4) {
                     Question q = new Question(parts[0], parts[1], parts[2], parts[3]);
                     questions.add(q);
                 } else {
@@ -37,7 +37,7 @@ public class FileQuestionDao implements QuestionDao {
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (Question q: questions) {
-                if (q.getHint()==null) {
+                if (q.getHint() == null) {
                     writer.write(q.getSetName() + ";" + q.getQuestion() + ";" + q.getAnswer() + "\n");
                 } else {
                     writer.write(q.getSetName() + ";" + q.getQuestion() + ";" + q.getAnswer() + ";" + q.getHint() + "\n");

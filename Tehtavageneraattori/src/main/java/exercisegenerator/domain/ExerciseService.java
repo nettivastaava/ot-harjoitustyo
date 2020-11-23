@@ -15,7 +15,7 @@ public class ExerciseService {
     public ExerciseService(ExerciseSetDao exerciseSetDao, UserDao userDao, QuestionDao questionDao) {
         this.exerciseSetDao = exerciseSetDao;
         this.userDao = userDao;       
-        this.questionDao=questionDao;
+        this.questionDao = questionDao;
     }
     
     public boolean createUser(User user)  {   

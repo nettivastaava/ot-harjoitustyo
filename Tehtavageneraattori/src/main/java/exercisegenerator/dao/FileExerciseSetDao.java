@@ -25,9 +25,9 @@ public class FileExerciseSetDao implements ExerciseSetDao {
                 String exName = parts[0];
                 ArrayList<Question> questions = new ArrayList<>();
                 Scanner reader2 = new Scanner(new File(file2));
-                while(reader2.hasNextLine()) {
+                while (reader2.hasNextLine()) {
                     String[] parts2 = reader2.nextLine().split(";");
-                    if (parts[0].equals(exName) && parts2.length==4) {
+                    if (parts[0].equals(exName) && parts2.length == 4) {
                         questions.add(new Question(parts2[1], parts2[2], parts2[3]));
                     } else if (parts[0].equals(exName)) {
                         questions.add(new Question(parts2[1], parts2[2]));
