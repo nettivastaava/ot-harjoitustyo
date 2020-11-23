@@ -11,4 +11,5 @@
 | 18.11.2020 | 6 | Tehtäväsarjan luominen ja bugien korjausta |
 | 23.11.2020 | 4 | Kysymykset omaan tiedostoon + refaktorointi |
 | 23.11.2020 | 2 | QuestionDaon testit |
-| yht | 26 | |
+| 23.11.2020 | 2 | Checkstyle ja pakkauskaavio |
+| yht | 28 | |
