@@ -20,10 +20,10 @@ public class FileQuestionDao implements QuestionDao {
             while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(";");
                 if (parts.length==4) {
-                    Question q = new Question(parts[0], parts[1], parts[2]);
+                    Question q = new Question(parts[0], parts[1], parts[2], parts[3]);
                     questions.add(q);
                 } else {
-                    Question q = new Question(parts[0], parts[1]);
+                    Question q = new Question(parts[0], parts[1], parts[2]);
                     questions.add(q);
                 }
                 

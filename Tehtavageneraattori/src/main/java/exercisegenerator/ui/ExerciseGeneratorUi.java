@@ -70,10 +70,10 @@ public class ExerciseGeneratorUi extends Application {
     public void solveExercise(ExerciseSet ex, Stage window) {
         questionBox.getChildren().clear();
         answerBox.getChildren().clear();
+        System.out.println(ex.getQuestions().size());
         for (Question q: ex.getQuestions()) {
             window.setScene(solveExerciseScene);
-        }
-           
+        }       
     }
     
     public Node createExerciseNode(ExerciseSet ex, Stage window) {

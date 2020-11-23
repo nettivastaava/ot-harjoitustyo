@@ -14,10 +14,10 @@ public class FileExerciseSetDao implements ExerciseSetDao {
     private String file;
     private String file2;
     
-    public FileExerciseSetDao(String file, String file2) throws Exception {
+    public FileExerciseSetDao(String file, String anotherFile) throws Exception {
         exercises = new ArrayList<>();
         this.file = file;
-        this.file2=file2;
+        this.file2 = anotherFile;
         try {
             Scanner reader = new Scanner(new File(file));
             while (reader.hasNextLine()) {
@@ -26,7 +26,7 @@ public class FileExerciseSetDao implements ExerciseSetDao {
                 ArrayList<Question> questions = new ArrayList<>();
                 Scanner reader2 = new Scanner(new File(file2));
                 while(reader2.hasNextLine()) {
-                    String[] parts2 = reader.nextLine().split(";");
+                    String[] parts2 = reader2.nextLine().split(";");
                     if (parts[0].equals(exName) && parts2.length==4) {
                         questions.add(new Question(parts2[1], parts2[2], parts2[3]));
                     } else if (parts[0].equals(exName)) {

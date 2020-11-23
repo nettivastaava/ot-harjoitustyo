@@ -13,7 +13,14 @@ public class Question {
         this.answer = answer;
     }
     
-    public Question(String question, String hint, String answer) {
+    public Question(String setName, String question, String answer) {
+        this.setName=setName;
+        this.question = question;
+        this.answer = answer;
+    }
+    
+    public Question(String setName, String question, String answer, String hint) {
+        this.setName=setName;
         this.question = question;
         this.hint = hint;
         this.answer = answer;
