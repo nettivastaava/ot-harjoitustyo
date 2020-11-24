@@ -201,8 +201,10 @@ public class ExerciseGeneratorUi extends Application {
         HBox questionPane = new HBox(10);
         HBox answerPane = new HBox(10);
         HBox namePane = new HBox(10);
+        HBox hintPane = new HBox(10);
         
         TextField exQuestion = new TextField();
+        TextField exHint = new TextField();
         TextField exAnswer = new TextField();
         TextField setName = new TextField();
         
@@ -212,8 +214,9 @@ public class ExerciseGeneratorUi extends Application {
         questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
         answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
         namePane.getChildren().addAll(new Label("Set name:"), setName, createSet);
+        hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
         
-        newExercisePane.getChildren().addAll(questionPane, answerPane, addExercise, namePane);
+        newExercisePane.getChildren().addAll(questionPane, hintPane, answerPane, addExercise, namePane);
         newExercisePane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
         createExerciseScene = new Scene(newExercisePane, 420, 300);
@@ -287,9 +290,13 @@ public class ExerciseGeneratorUi extends Application {
         
         addExercise.setOnAction(e-> {
             Question q = new Question(exQuestion.getText(), exAnswer.getText());
+            if (!exHint.getText().equals("")) {
+                q.setHint(exHint.getText());
+            }
             toBeAdded.add(q);
             exQuestion.setText("");
             exAnswer.setText("");
+            exHint.setText("");
             
         });
         

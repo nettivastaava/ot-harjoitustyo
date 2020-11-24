@@ -49,5 +49,11 @@ public class Question {
     public void setSetName(String setName) {
         this.setName = setName;
     }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+    
+    
           
 } 
