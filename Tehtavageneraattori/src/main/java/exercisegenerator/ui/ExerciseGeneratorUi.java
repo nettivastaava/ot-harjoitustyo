@@ -44,7 +44,6 @@ public class ExerciseGeneratorUi extends Application {
     private ArrayList<Question> toBeAdded;
     private VBox exerciseSets;
     private VBox answerSheet;
-    private HBox answerBox;
     private HBox questionBox;
     
     @Override
@@ -62,7 +61,7 @@ public class ExerciseGeneratorUi extends Application {
         
         answerSheet = new VBox(10);
         questionBox = new HBox(10);
-        answerBox = new HBox(10);
+    
         exService = new ExerciseService(exerciseDao, userDao, questionDao);
         toBeAdded = new ArrayList<>();
     }
@@ -85,7 +84,6 @@ public class ExerciseGeneratorUi extends Application {
         if (q.getHint()!=null) {
             hintBox.getChildren().addAll(hintButton);
         }
-        
         answerBox.getChildren().addAll(answerLabel, answerInput, answerButton);
         box.getChildren().addAll(question, hintBox, answerBox);
         return box;
@@ -95,9 +93,15 @@ public class ExerciseGeneratorUi extends Application {
         answerSheet.getChildren().clear();
         System.out.println(ex.getQuestions().size());
         System.out.println(ex.getName());
-        for (Question q: ex.getQuestions()) {
+        List<Question> questions = ex.getQuestions();
+        questions.forEach(q-> {
             answerSheet.getChildren().add(createQuestionNode(q));
-        }       
+        });  
+        Button finish = new Button("Finished");
+        answerSheet.getChildren().addAll(finish);
+        finish.setOnAction(e-> {
+            window.setScene(exercisesScene);
+        });
     }
     
     public Node createExerciseNode(ExerciseSet ex, Stage window) {
@@ -289,7 +293,7 @@ public class ExerciseGeneratorUi extends Application {
             Question q = new Question(exQuestion.getText(), exAnswer.getText());
             if (!exHint.getText().equals("")) {
                 q.setHint(exHint.getText());
-            }
+            } 
             toBeAdded.add(q);
             exQuestion.setText("");
             exAnswer.setText("");
