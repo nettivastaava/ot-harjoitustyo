@@ -67,13 +67,36 @@ public class ExerciseGeneratorUi extends Application {
         toBeAdded = new ArrayList<>();
     }
     
-    public void solveExercise(ExerciseSet ex, Stage window) {
-        questionBox.getChildren().clear();
-        answerBox.getChildren().clear();
+    public Node createQuestionNode(Question q) {
+        VBox box = new VBox(10);
+        HBox hintBox = new HBox(10);
+        HBox answerBox = new HBox(10);
+        Label question = new Label(q.getQuestion());
+        Button hintButton = new Button("Hint");
+        hintButton.setOnAction(e-> {
+           hintBox.getChildren().addAll(new Label(q.getHint()));
+        });
+        Label answerLabel = new Label("Answer");
+        TextField answerInput = new TextField();
+        Button answerButton = new Button("Submit");    
+        answerButton.setOnAction(e-> {
+            
+        });
+        if (q.getHint()!=null) {
+            hintBox.getChildren().addAll(hintButton);
+        }
+        
+        answerBox.getChildren().addAll(answerLabel, answerInput, answerButton);
+        box.getChildren().addAll(question, hintBox, answerBox);
+        return box;
+    }
+    
+    public void solveExercise(ExerciseSet ex, Stage window) {       
+        answerSheet.getChildren().clear();
         System.out.println(ex.getQuestions().size());
         System.out.println(ex.getName());
         for (Question q: ex.getQuestions()) {
-            window.setScene(solveExerciseScene);
+            answerSheet.getChildren().add(createQuestionNode(q));
         }       
     }
     
@@ -83,7 +106,7 @@ public class ExerciseGeneratorUi extends Application {
         label.setMinHeight(28);
         Button button = new Button("Solve");
         button.setOnAction(e-> {
-            
+            window.setScene(solveExerciseScene);
             solveExercise(ex, window);          
         });
         System.out.println(label);
@@ -209,9 +232,17 @@ public class ExerciseGeneratorUi extends Application {
             
         registerScene = new Scene(registerPane, 420, 300);
         
-        answerSheet.getChildren().addAll(questionBox, answerBox);
+        ScrollPane scrollPaneQuestions = new ScrollPane();
+        
+        BorderPane questionsPane = new BorderPane(scrollPaneQuestions);
+        
+        scrollPaneQuestions.setContent(answerSheet);
         answerSheet.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
-        solveExerciseScene = new Scene(answerSheet, 420, 300);
+        scrollPaneQuestions.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
+        
+        
+        solveExerciseScene = new Scene(questionsPane, 420, 300);
         
         loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
