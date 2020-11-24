@@ -71,19 +71,25 @@ public class ExerciseGeneratorUi extends Application {
         HBox hintBox = new HBox(10);
         HBox answerBox = new HBox(10);
         Label question = new Label(q.getQuestion());
+        Label message = new Label();
         Button hintButton = new Button("Hint");
         hintButton.setOnAction(e-> {
-           hintBox.getChildren().addAll(new Label(q.getHint()));
+           message.setText(q.getHint());
         });
         Label answerLabel = new Label("Answer");
         TextField answerInput = new TextField();
         Button answerButton = new Button("Submit");    
         answerButton.setOnAction(e-> {
-            
+            String answer = answerInput.getText();
+            if (answer.equals("")) {
+                message.setText("Mandatory field is missing");
+            } else if (answer.equals(q.getAnswer())) {
+                message.setText("CORRECT");
+            } else message.setText("Wrong answer. You may try again.");
         });
         if (q.getHint()!=null) {
-            hintBox.getChildren().addAll(hintButton);
-        }
+            hintBox.getChildren().addAll(hintButton, message);
+        } else hintBox.getChildren().addAll(message);
         answerBox.getChildren().addAll(answerLabel, answerInput, answerButton);
         box.getChildren().addAll(question, hintBox, answerBox);
         return box;
