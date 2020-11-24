@@ -9,6 +9,7 @@ public class FakeExerciseSetDao implements ExerciseSetDao {
     List<ExerciseSet> exercises;
     
     public FakeExerciseSetDao() {
+        exercises = new ArrayList<>();
         exercises.add(new ExerciseSet("Matikka", new ArrayList<>()));
     }
 

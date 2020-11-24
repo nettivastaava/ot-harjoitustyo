@@ -235,16 +235,13 @@ public class ExerciseGeneratorUi extends Application {
             
         registerScene = new Scene(registerPane, 420, 300);
         
-        ScrollPane scrollPaneQuestions = new ScrollPane();
-        
+        ScrollPane scrollPaneQuestions = new ScrollPane();   
         BorderPane questionsPane = new BorderPane(scrollPaneQuestions);
         
         scrollPaneQuestions.setContent(answerSheet);
         answerSheet.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         scrollPaneQuestions.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
-        
-        
-        
+               
         solveExerciseScene = new Scene(questionsPane, 420, 300);
         
         loginButton.setOnAction(e-> {

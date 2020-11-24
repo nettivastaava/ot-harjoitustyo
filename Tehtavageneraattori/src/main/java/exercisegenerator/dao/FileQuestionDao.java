@@ -54,8 +54,14 @@ public class FileQuestionDao implements QuestionDao {
     }
 
     @Override
-    public String findBySetName(String set) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List findBySetName(String set) {
+        ArrayList<Question> list = new ArrayList<>();
+        for (Question q: questions) {
+            if (q.getSetName().equals(set)) {
+                list.add(q);
+            }
+        }
+        return list;
     }
    
 }

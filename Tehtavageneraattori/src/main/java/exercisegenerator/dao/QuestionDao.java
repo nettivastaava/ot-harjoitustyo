@@ -6,10 +6,11 @@
 package exercisegenerator.dao;
 
 import exercisegenerator.domain.Question;
+import java.util.List;
 
 
 public interface QuestionDao {
     Question create(Question q) throws Exception;
 
-    String findBySetName(String set);
+    List findBySetName(String set);
 }
