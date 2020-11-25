@@ -26,8 +26,12 @@ public class Question {
         this.answer = answer;
     }
     
-    public boolean answerQuestion(String attempt) {
-        return this.answer.equals(attempt);
+    public String answerQuestion(String attempt) {
+        if (attempt.equals("")) {
+            return "Mandatory field missing";
+        } else if (attempt.equals(this.answer)) {
+            return "CORRECT";
+        } else return "Wrong answer. You may try again.";
     }
 
     public String getQuestion() {

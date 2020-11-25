@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Properties;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -26,7 +25,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
@@ -44,7 +42,7 @@ public class ExerciseGeneratorUi extends Application {
     private ArrayList<Question> toBeAdded;
     private VBox exerciseSets;
     private VBox answerSheet;
-    private HBox questionBox;
+
     
     @Override
     public void init() throws Exception {
@@ -60,8 +58,6 @@ public class ExerciseGeneratorUi extends Application {
         FileQuestionDao questionDao = new FileQuestionDao(questionFile);
         
         answerSheet = new VBox(10);
-        questionBox = new HBox(10);
-    
         exService = new ExerciseService(exerciseDao, userDao, questionDao);
         toBeAdded = new ArrayList<>();
     }
@@ -81,15 +77,18 @@ public class ExerciseGeneratorUi extends Application {
         Button answerButton = new Button("Submit");    
         answerButton.setOnAction(e-> {
             String answer = answerInput.getText();
-            if (answer.equals("")) {
-                message.setText("Mandatory field is missing");
-            } else if (answer.equals(q.getAnswer())) {
-                message.setText("CORRECT");
-            } else message.setText("Wrong answer. You may try again.");
+            message.setText(q.answerQuestion(answer));
+            if (message.getText().equals("CORRECT")) {
+                message.setTextFill(Color.GREEN);
+            } else {
+                message.setTextFill(Color.RED);
+            }
         });
         if (q.getHint()!=null) {
             hintBox.getChildren().addAll(hintButton, message);
-        } else hintBox.getChildren().addAll(message);
+        } else {  
+            hintBox.getChildren().addAll(message);       
+        }   
         answerBox.getChildren().addAll(answerLabel, answerInput, answerButton);
         box.getChildren().addAll(question, hintBox, answerBox);
         return box;
@@ -154,15 +153,15 @@ public class ExerciseGeneratorUi extends Application {
         
         inputPaneUpper.getChildren().addAll(new Label("username:"), usernameInput);
         inputPaneLower.getChildren().addAll(new Label("password:"), passwordInput);
-        Label exerciseLabel = new Label("ExerciseApp");
+        Label loginNotification = new Label();
+        Label registerNotification = new Label();
         
         Button toRegistrationButton = new Button("create a new user");
-        toRegistrationButton.setPadding(new Insets(10));
-        
+        toRegistrationButton.setPadding(new Insets(10));       
         Button loginButton = new Button("login");
         loginButton.setPadding(new Insets(10));
         
-        loginPane.getChildren().addAll(exerciseLabel, inputPaneUpper, inputPaneLower, loginButton, toRegistrationButton);       
+        loginPane.getChildren().addAll(new Label("ExerciseApp"), loginNotification, inputPaneUpper, inputPaneLower, loginButton, toRegistrationButton);       
         loginPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         loginScene = new Scene(loginPane, 420, 300);  
          
@@ -171,10 +170,8 @@ public class ExerciseGeneratorUi extends Application {
         
         Button registerButton = new Button("create");
         
-        ScrollPane scrollPane = new ScrollPane();
-        
-        BorderPane mainPane = new BorderPane(scrollPane);
-        
+        ScrollPane scrollPane = new ScrollPane();      
+        BorderPane mainPane = new BorderPane(scrollPane);       
         HBox menuPane = new HBox(10);       
         
         Region menuSpacer = new Region();
@@ -183,10 +180,9 @@ public class ExerciseGeneratorUi extends Application {
    
         Button createExerciseButton = new Button("create new");
        
-        menuPane.getChildren().addAll(exerciseLabel, menuSpacer, logoutButton);
+        menuPane.getChildren().addAll(new Label("ExerciseApp"), menuSpacer, logoutButton);
             
-        registerButton.setPadding(new Insets(10));
-        
+        registerButton.setPadding(new Insets(10)); 
         TextField usernameRegInput = new TextField();           
         usernameRegInput.setPrefWidth(150);
             
@@ -201,8 +197,7 @@ public class ExerciseGeneratorUi extends Application {
         scrollPane.setContent(exerciseSets);
         scrollPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         mainPane.setBottom(createExerciseButton);
-        mainPane.setTop(menuPane);
-                
+        mainPane.setTop(menuPane);         
         mainPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
                 
         exercisesScene = new Scene(mainPane, 420, 300, Color.KHAKI);
@@ -217,6 +212,7 @@ public class ExerciseGeneratorUi extends Application {
         TextField exHint = new TextField();
         TextField exAnswer = new TextField();
         TextField setName = new TextField();
+        Label creationNotification = new Label();
         
         Button addExercise = new Button("add");
         Button createSet = new Button("create");
@@ -226,7 +222,7 @@ public class ExerciseGeneratorUi extends Application {
         namePane.getChildren().addAll(new Label("Set name:"), setName, createSet);
         hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
         
-        newExercisePane.getChildren().addAll(questionPane, hintPane, answerPane, addExercise, namePane);
+        newExercisePane.getChildren().addAll(creationNotification, questionPane, hintPane, answerPane, addExercise, namePane);
         newExercisePane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         
         createExerciseScene = new Scene(newExercisePane, 420, 300);
@@ -240,7 +236,7 @@ public class ExerciseGeneratorUi extends Application {
         inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
         Label registerLabel = new Label("Registration");
                         
-        registerPane.getChildren().addAll(registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
+        registerPane.getChildren().addAll(registerNotification, registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
         registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
             
         registerScene = new Scene(registerPane, 420, 300);
@@ -261,7 +257,8 @@ public class ExerciseGeneratorUi extends Application {
                 updateExercises(window);
                 window.setScene(exercisesScene);
             } else {
-                System.out.println("wrong credentials");
+                loginNotification.setText("user does not exist");
+                loginNotification.setTextFill(Color.RED);
             }
         });
         
@@ -280,14 +277,17 @@ public class ExerciseGeneratorUi extends Application {
             User newUser = new User(username, password);
             
             if (newUser.getUsername() == null) {
-                System.out.println("username or password is too short");
+                registerNotification.setText("username or password is too short");
+                registerNotification.setTextFill(Color.RED);
             } else if (exService.createUser(newUser)) {
-                System.out.println("success");
                 usernameRegInput.setText("");
                 passwordRegInput.setText("");
                 window.setScene(loginScene);
+                loginNotification.setText("user created successfully");
+                loginNotification.setTextFill(Color.GREEN);
             } else {
-                System.out.println("username is not available");       
+                registerNotification.setText("username is not available");     
+                registerNotification.setTextFill(Color.RED);
             }           
         }); 
         
@@ -301,6 +301,8 @@ public class ExerciseGeneratorUi extends Application {
                 q.setHint(exHint.getText());
             } 
             toBeAdded.add(q);
+            creationNotification.setText("Question added");
+            creationNotification.setTextFill(Color.GREEN);
             exQuestion.setText("");
             exAnswer.setText("");
             exHint.setText("");
@@ -319,8 +321,7 @@ public class ExerciseGeneratorUi extends Application {
             if (exService.createExerciseSet(exSet)) {
                 toBeAdded.clear();
                 setName.setText("");
-                updateExercises(window);
-                
+                updateExercises(window);                
                 window.setScene(exercisesScene);
             }
         });

@@ -1,5 +1,5 @@
 
-package exercisegenerator.main;
+package exercisegenerator;
 
 import exercisegenerator.ui.ExerciseGeneratorUi;
 
