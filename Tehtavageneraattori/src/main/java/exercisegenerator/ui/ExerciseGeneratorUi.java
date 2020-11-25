@@ -299,10 +299,21 @@ public class ExerciseGeneratorUi extends Application {
             Question q = new Question(exQuestion.getText(), exAnswer.getText());
             if (!exHint.getText().equals("")) {
                 q.setHint(exHint.getText());
-            } 
-            toBeAdded.add(q);
-            creationNotification.setText("Question added");
-            creationNotification.setTextFill(Color.GREEN);
+            }
+            
+            if (q.getQuestion().equals("") || q.getAnswer().equals("")) {
+                creationNotification.setText("Mandatory field missing");
+                creationNotification.setTextFill(Color.RED);
+            } else {
+                toBeAdded.add(q);
+                creationNotification.setText("Question added");
+                creationNotification.setTextFill(Color.GREEN);
+            }
+            if (toBeAdded.size()==8) {
+                questionPane.getChildren().clear();
+                answerPane.getChildren().clear();
+                hintPane.getChildren().clear();
+            }
             exQuestion.setText("");
             exAnswer.setText("");
             exHint.setText("");
@@ -312,17 +323,23 @@ public class ExerciseGeneratorUi extends Application {
         createSet.setOnAction(e-> {
             ExerciseSet exSet = new ExerciseSet(setName.getText(), toBeAdded);
             exSet.setNameToQuestions();
-            
-            for (Question q: exSet.getQuestions()) {
-                if (exService.createQuestion(q)) {
-                    continue;
-                }              
-            }
+                       
             if (exService.createExerciseSet(exSet)) {
+                for (Question q: exSet.getQuestions()) {
+                    if (exService.createQuestion(q)) {
+                        continue;
+                    }              
+                }
                 toBeAdded.clear();
                 setName.setText("");
                 updateExercises(window);                
                 window.setScene(exercisesScene);
+                questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
+                answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
+                hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
+            } else {
+                creationNotification.setText("At least 4 questions are required");
+                creationNotification.setTextFill(Color.RED);
             }
         });
     }
