@@ -129,7 +129,7 @@ public class ExerciseGeneratorUi extends Application {
     
     public void updateExercises(Stage window) {
         exerciseSets.getChildren().clear();    
-        exerciseSets.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));       
+            
 
         List<ExerciseSet> currentSets = exService.exercisesList();
         System.out.println("sets: "+ currentSets.size());
@@ -162,7 +162,7 @@ public class ExerciseGeneratorUi extends Application {
         loginButton.setPadding(new Insets(10));
         
         loginPane.getChildren().addAll(new Label("ExerciseApp"), loginNotification, inputPaneUpper, inputPaneLower, loginButton, toRegistrationButton);       
-        loginPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
         loginScene = new Scene(loginPane, 420, 300);  
          
         window.setScene(loginScene);
@@ -195,10 +195,10 @@ public class ExerciseGeneratorUi extends Application {
         updateExercises(window);
         
         scrollPane.setContent(exerciseSets);
-        scrollPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
         mainPane.setBottom(createExerciseButton);
         mainPane.setTop(menuPane);         
-        mainPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
                 
         exercisesScene = new Scene(mainPane, 420, 300, Color.KHAKI);
         
@@ -223,7 +223,7 @@ public class ExerciseGeneratorUi extends Application {
         hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
         
         newExercisePane.getChildren().addAll(creationNotification, questionPane, hintPane, answerPane, addExercise, namePane);
-        newExercisePane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
         
         createExerciseScene = new Scene(newExercisePane, 420, 300);
         
@@ -237,7 +237,7 @@ public class ExerciseGeneratorUi extends Application {
         Label registerLabel = new Label("Registration");
                         
         registerPane.getChildren().addAll(registerNotification, registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
-        registerPane.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
             
         registerScene = new Scene(registerPane, 420, 300);
         
@@ -245,8 +245,7 @@ public class ExerciseGeneratorUi extends Application {
         BorderPane questionsPane = new BorderPane(scrollPaneQuestions);
         
         scrollPaneQuestions.setContent(answerSheet);
-        answerSheet.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
-        scrollPaneQuestions.setBackground(new Background(new BackgroundFill(Color.KHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
+        
                
         solveExerciseScene = new Scene(questionsPane, 420, 300);
         
@@ -257,7 +256,7 @@ public class ExerciseGeneratorUi extends Application {
                 updateExercises(window);
                 window.setScene(exercisesScene);
             } else {
-                loginNotification.setText("user does not exist");
+                loginNotification.setText("invalid credentials");
                 loginNotification.setTextFill(Color.RED);
             }
         });
