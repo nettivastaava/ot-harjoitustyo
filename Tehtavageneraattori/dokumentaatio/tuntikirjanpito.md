@@ -12,4 +12,7 @@
 | 23.11.2020 | 4 | Kysymykset omaan tiedostoon + refaktorointi |
 | 23.11.2020 | 2 | QuestionDaon testit |
 | 23.11.2020 | 2 | Checkstyle ja pakkauskaavio |
-| yht | 28 | |
+| 24.11.2020 | 5 | Tehtäväsarjan ratkominen |
+| 24.11.2020 | 1 | Pakkauskaavio |
+| 25.11.2020 | 4 | Vihjeen mahdollistaminen |
+| yht | 38 | |
