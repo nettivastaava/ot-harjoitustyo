@@ -19,12 +19,12 @@ Sovellus koostuu viidestä eri näkymästä.
    - [x] Käyttäjä näkee järjestelmään lisätyt tehtäväsarjat
    - [x] Käyttäjä voi luoda uuden tehtäväsarjan
        - [x] Tehtäväsarjassa on oltava vähintään 4 ja enintään 8 tehtävää
-       - [ ] Tehtävälle on mahdollista asettaa ratkaisuvihje
+       - [x] Tehtävälle on mahdollista asettaa ratkaisuvihje
    - [ ] Käyttäjä voi poistaa itse luomansa tehtäväsarjan
-   - [ ] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
-       - [ ] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
+   - [x] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
+       - [x] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
        - [ ] Vastauksen jälkeen järjestelmä näyttää oikean vastauksen
-       - [ ] Kun jokaiseen sarjan tehtävään on vastattu, palataan tehtäväsarjat sisältävään näkymään
+       - [x] Kun jokaiseen sarjan tehtävään on vastattu, palataan tehtäväsarjat sisältävään näkymään
    - [x] Käyttäjä voi kirjautua ulos järjestelmästä
       
 ### **Jatkokehitysideoita**
