@@ -31,7 +31,9 @@ public class Question {
             return "Mandatory field missing";
         } else if (attempt.equals(this.answer)) {
             return "CORRECT";
-        } else return "Wrong answer. You may try again.";
+        } else {
+            return "Wrong answer. You may try again.";
+        }
     }
 
     public String getQuestion() {
