@@ -129,8 +129,7 @@ public class ExerciseGeneratorUi extends Application {
     
     public void updateExercises(Stage window) {
         exerciseSets.getChildren().clear();    
-            
-
+           
         List<ExerciseSet> currentSets = exService.exercisesList();
         System.out.println("sets: "+ currentSets.size());
         currentSets.forEach(set-> {
@@ -222,9 +221,7 @@ public class ExerciseGeneratorUi extends Application {
         namePane.getChildren().addAll(new Label("Set name:"), setName, createSet);
         hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
         
-        newExercisePane.getChildren().addAll(creationNotification, questionPane, hintPane, answerPane, addExercise, namePane);
-        
-        
+        newExercisePane.getChildren().addAll(creationNotification, questionPane, hintPane, answerPane, addExercise, namePane);       
         createExerciseScene = new Scene(newExercisePane, 420, 300);
         
         VBox registerPane = new VBox(10);
