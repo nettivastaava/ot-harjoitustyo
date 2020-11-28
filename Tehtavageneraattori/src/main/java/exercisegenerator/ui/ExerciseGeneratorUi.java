@@ -272,7 +272,7 @@ public class ExerciseGeneratorUi extends Application {
             String password = passwordRegInput.getText();
             User newUser = new User(username, password);
             
-            if (newUser.getUsername() == null) {
+            if (!newUser.isValid()) {
                 registerNotification.setText("username or password is too short");
                 registerNotification.setTextFill(Color.RED);
             } else if (exService.createUser(newUser)) {

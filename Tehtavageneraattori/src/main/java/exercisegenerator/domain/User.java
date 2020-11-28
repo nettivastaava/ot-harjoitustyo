@@ -10,13 +10,17 @@ public class User {
 
     
     public User(String username, String password) {
-        if (username.length() < 3 || password.length() < 5) {
-            this.username = null;
-        } else {
-            this.username = username;
-            this.password = password;
-        }
+        this.username=username;
+        this.password=password;
 
+    }
+    
+    public boolean isValid() {
+        if (this.username.length() < 3 || this.password.length() < 5) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public String getUsername() {
