@@ -23,4 +23,7 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 #### Checkstyle
 - Tiedostoon checkstyle.xml määrittelemät tarkistukset suoritetaan komennolla: mvn jxr:jxr checkstyle:checkstyle
 
+#### Suoritettavan jarin generointi
+- Hakemistoon target generoidaan suoritettava jar-tiedosto Tehtavageneraattori-1.0-SNAPSHOT.jar komennolla: mvn package
+
 
