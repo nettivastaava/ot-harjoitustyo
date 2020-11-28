@@ -22,6 +22,24 @@ public class UserTest {
         User user2 = new User("Huima", "kissa");
         
         assertFalse(user1.equals(user2));
-    } 
+    }
+    
+    @Test
+    public void returnsTrueWhenValid() {
+        User user1 = new User("Heimo", "kissa");
+        assertTrue(user1.isValid());
+    }
+    
+    @Test
+    public void returnsFalseWhenUsernameIsTooShort() {
+        User user1 = new User("He", "kissa");
+        assertFalse(user1.isValid());
+    }
+    
+    @Test
+    public void returnsFalseWhenPasswordIsTooShort() {
+        User user1 = new User("Heimo", "kiss");
+        assertFalse(user1.isValid());
+    }
     
 }
