@@ -13,7 +13,7 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 
 ### Releaset
 
-[Viikko5](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 5](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/viikko5)
 
 ### Komentorivitoiminnot
 
