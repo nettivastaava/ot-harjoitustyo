@@ -19,7 +19,7 @@ public class ExerciseService {
     }
     
     public boolean createUser(User user)  {   
-        if (userDao.findByUsername(user.getUsername()) != null || user.isValid()==false) {
+        if (userDao.findByUsername(user.getUsername()) != null || user.isValid() == false) {
             return false;
         }
         
