@@ -15,5 +15,6 @@
 | 24.11.2020 | 5 | Tehtäväsarjan ratkominen |
 | 24.11.2020 | 1 | Pakkauskaavio |
 | 25.11.2020 | 4 | Vihjeen mahdollistaminen |
-| 27.11.2020 | 2 | Sekvenssikaaviot |
-| yht | 40 | |
+| 25.11.2020 | 2 | Testien laajennuksia |
+| 27.11.2020 | 2 | Sekvenssikaaviot ja release |
+| yht | 42 | |
