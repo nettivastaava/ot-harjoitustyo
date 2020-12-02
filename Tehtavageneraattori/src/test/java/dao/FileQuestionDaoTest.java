@@ -51,6 +51,13 @@ public class FileQuestionDaoTest {
         assertEquals(list.size(), 0);
     }
     
+    @Test
+    public void addedQuestionsAreListed() {
+        List list = questionDao.findBySetName("Matematiikka");
+        
+        assertEquals(list.size(), 4);
+    }
+    
     @After
     public void tearDown() {
         exerciseFile.delete();

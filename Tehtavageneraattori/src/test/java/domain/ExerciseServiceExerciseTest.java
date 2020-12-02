@@ -3,6 +3,7 @@ package domain;
 
 import exercisegenerator.domain.ExerciseService;
 import exercisegenerator.domain.ExerciseSet;
+import exercisegenerator.domain.Question;
 import exercisegenerator.domain.User;
 import java.util.List;
 import org.junit.Before;
@@ -34,6 +35,18 @@ public class ExerciseServiceExerciseTest {
         assertEquals(1, exercises.size());
         ExerciseSet exSet = exercises.get(0);
         assertEquals("Matikka", exSet.getName());    
+    }
+    
+    @Test
+    public void setQuestionNameWorks() {
+        List<ExerciseSet> exercises = exerciseSetDao.getAll();
+        ExerciseSet exSet = exercises.get(0);
+        exSet.addQuestion(new Question("1+1?", "2"));
+        Question q = exSet.getQuestions().get(0);
+        
+        assertEquals(null, q.getSetName());
+        exSet.setNameToQuestions();
+        assertEquals("Matikka", q.getSetName());
     }
     
  

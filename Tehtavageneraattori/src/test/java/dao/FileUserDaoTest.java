@@ -42,16 +42,23 @@ public class FileUserDaoTest {
     }
    
     @Test
-    public void userIsFound() {
+    public void existingUserIsFound() {
         User user = userDao.findByUsername("Heimo");
         assertEquals("Heimo", user.getUsername());
+        
+        User user2 = userDao.findByUsernameAndPassword("Heimo", "huima");
+        assertEquals("Heimo", user2.getUsername());
     }
     
     @Test
     public void nonExistingUserIsNotFound() {
         User user = userDao.findByUsername("Jallu");
         assertEquals(null, user);
+        
+        User user2 = userDao.findByUsernameAndPassword("Heimo", "huimo");
+        assertEquals(null, user2);
     }
+    
     
     @After
     public void tearDown() {
