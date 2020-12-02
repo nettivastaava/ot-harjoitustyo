@@ -1,7 +1,10 @@
 
 package exercisegenerator.domain;
 
-
+/**
+* Yksittäistä tehtäväsarjan kysymystä kuvaava luokka
+* 
+*/
 public class Question {
     private String setName;
     private String question;
@@ -26,9 +29,18 @@ public class Question {
         this.answer = answer;
     }
     
+     /**
+     * Metodi vertaa käyttäjän antamaa vastausta kysymyksen oikeaan vastaukseen ja antaa palauttaa sen mukaan, mikä on vertailun tulos.
+     * 
+     * 
+     *
+     * @param   attempt   Käyttäjän antama syöte
+     *
+     * @return Vastauksen palaute.
+     */
     public String answerQuestion(String attempt) {
         if (attempt.equals("")) {
-            return "Mandatory field missing";
+            return "Mandatory field missing.";
         } else if (attempt.equals(this.answer)) {
             return "CORRECT";
         } else {

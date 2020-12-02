@@ -3,6 +3,10 @@ package exercisegenerator.domain;
 
 import java.util.ArrayList;
 
+/**
+* Yksittäistä tehtäväsarjaa kuvaava luokka
+* 
+*/
 public class ExerciseSet {
     private String name;
     private ArrayList<Question> questions;
@@ -40,6 +44,10 @@ public class ExerciseSet {
         this.questions.add(q);
     } 
     
+     /**
+     * Metodi käy läpi sarjan kysymykset ja lisää niihin sarjan nimitunnisteen. Metodia hyödynnetään sarjan luomisen yhteydessä.
+     * 
+     */
     public void setNameToQuestions() {
         for (Question q: questions) {
             q.setSetName(name);

@@ -319,22 +319,26 @@ public class ExerciseGeneratorUi extends Application {
         createSet.setOnAction(e-> {
             ExerciseSet exSet = new ExerciseSet(setName.getText(), toBeAdded);
             exSet.setNameToQuestions();
-                       
-            if (exService.createExerciseSet(exSet)) {
-                for (Question q: exSet.getQuestions()) {
-                    if (exService.createQuestion(q)) {
-                        continue;
-                    }              
+            if (exService.getExerciseSetDao().findOne(setName.getText())==null) {          
+                if (exService.createExerciseSet(exSet)) {
+                    for (Question q: exSet.getQuestions()) {
+                        if (exService.createQuestion(q)) {
+                            continue;
+                        }              
+                    }
+                    toBeAdded.clear();
+                    setName.setText("");
+                    updateExercises(window);                
+                    window.setScene(exercisesScene);
+                    questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
+                    answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
+                    hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
+                } else if (toBeAdded.size()<4) {
+                    creationNotification.setText("At least 4 questions are required");
+                    creationNotification.setTextFill(Color.RED);
                 }
-                toBeAdded.clear();
-                setName.setText("");
-                updateExercises(window);                
-                window.setScene(exercisesScene);
-                questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
-                answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
-                hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
             } else {
-                creationNotification.setText("At least 4 questions are required");
+                creationNotification.setText("Exercise set name is not available.");
                 creationNotification.setTextFill(Color.RED);
             }
         });
