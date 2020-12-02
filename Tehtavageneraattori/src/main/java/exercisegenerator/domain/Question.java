@@ -10,6 +10,7 @@ public class Question {
     private String question;
     private String hint;
     private String answer;
+    private boolean correct;
     
     public Question(String question, String answer) {
         this.question = question;
@@ -31,8 +32,6 @@ public class Question {
     
      /**
      * Metodi vertaa käyttäjän antamaa vastausta kysymyksen oikeaan vastaukseen ja antaa palauttaa sen mukaan, mikä on vertailun tulos.
-     * 
-     * 
      *
      * @param   attempt   Käyttäjän antama syöte
      *
@@ -71,6 +70,16 @@ public class Question {
     public void setHint(String hint) {
         this.hint = hint;
     }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
+    }
+    
+    
     
     
           

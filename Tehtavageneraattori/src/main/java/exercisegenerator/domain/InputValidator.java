@@ -1,5 +1,9 @@
 package exercisegenerator.domain;
 
+/**
+* Käyttäjän syötteiden validointiin käytettävä luokka
+* 
+*/
 public class InputValidator {
     
     public boolean questionValidation(String word) {

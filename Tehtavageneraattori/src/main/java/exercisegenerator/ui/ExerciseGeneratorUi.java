@@ -38,14 +38,15 @@ public class ExerciseGeneratorUi extends Application {
     private Scene exercisesScene;
     private Scene createExerciseScene;
     private Scene solveExerciseScene;
+    private Scene resultScene;
     
     private ExerciseService exService;
     private ArrayList<Question> toBeAdded;
     private VBox exerciseSets;
     private VBox answerSheet;
     private InputValidator inputValidator;
-
-    
+    private VBox resultPane;
+   
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();  
@@ -63,6 +64,7 @@ public class ExerciseGeneratorUi extends Application {
         exService = new ExerciseService(exerciseDao, userDao, questionDao);
         toBeAdded = new ArrayList<>();
         inputValidator = new InputValidator();
+        resultPane = new VBox(10);
     }
     
     public Node createQuestionNode(Question q) {
@@ -83,8 +85,10 @@ public class ExerciseGeneratorUi extends Application {
             message.setText(q.answerQuestion(answer));
             if (message.getText().equals("CORRECT")) {
                 message.setTextFill(Color.GREEN);
+                q.setCorrect(true);
             } else {
                 message.setTextFill(Color.RED);
+                q.setCorrect(false);
             }
         });
         if (q.getHint()!=null) {
@@ -108,8 +112,27 @@ public class ExerciseGeneratorUi extends Application {
         Button finish = new Button("Finished");
         answerSheet.getChildren().addAll(finish);
         finish.setOnAction(e-> {
+            window.setScene(resultScene);
+            showPoints(ex.getQuestions(), window);
+        });
+    }
+    
+    public void showPoints(ArrayList<Question> questions, Stage window) {
+        resultPane.getChildren().clear();
+        int points = 0;
+        for (Question q: questions) {
+            if (q.isCorrect()) {
+                points++;
+            }
+        }      
+        Button toMenu = new Button("Return to main menu");
+        
+        toMenu.setOnAction(e-> {
             window.setScene(exercisesScene);
         });
+        
+        resultPane.getChildren().addAll(new Label("You got " + points + "/" + questions.size() + " points"), toMenu);
+        
     }
     
     public Node createExerciseNode(ExerciseSet ex, Stage window) {
@@ -200,8 +223,7 @@ public class ExerciseGeneratorUi extends Application {
         
         mainPane.setBottom(createExerciseButton);
         mainPane.setTop(menuPane);         
-        
-                
+                       
         exercisesScene = new Scene(mainPane, 420, 300, Color.KHAKI);
         
         VBox newExercisePane = new VBox(10);
@@ -238,18 +260,19 @@ public class ExerciseGeneratorUi extends Application {
         inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
         Label registerLabel = new Label("Registration");
                         
-        registerPane.getChildren().addAll(registerNotification, registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);       
-        
-            
+        registerPane.getChildren().addAll(registerNotification, registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);                   
         registerScene = new Scene(registerPane, 420, 300);
         
         ScrollPane scrollPaneQuestions = new ScrollPane();   
         BorderPane questionsPane = new BorderPane(scrollPaneQuestions);
         
         scrollPaneQuestions.setContent(answerSheet);
-        
-               
+                     
         solveExerciseScene = new Scene(questionsPane, 420, 300);
+        
+        resultScene = new Scene(resultPane, 420, 300);
+        
+        
         
         loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
