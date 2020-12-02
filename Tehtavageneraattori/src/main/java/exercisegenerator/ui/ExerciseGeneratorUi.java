@@ -5,6 +5,7 @@ import exercisegenerator.dao.FileQuestionDao;
 import exercisegenerator.dao.FileUserDao;
 import exercisegenerator.domain.ExerciseService;
 import exercisegenerator.domain.ExerciseSet;
+import exercisegenerator.domain.InputValidator;
 import exercisegenerator.domain.Question;
 import exercisegenerator.domain.User;
 import java.io.FileInputStream;
@@ -42,13 +43,14 @@ public class ExerciseGeneratorUi extends Application {
     private ArrayList<Question> toBeAdded;
     private VBox exerciseSets;
     private VBox answerSheet;
+    private InputValidator inputValidator;
 
     
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();  
         properties.load(new FileInputStream("config.properties"));
-
+        
         String userFile = properties.getProperty("userFile");
         String exerciseFile = properties.getProperty("exerciseFile");
         String questionFile = properties.getProperty("questionFile");
@@ -60,6 +62,7 @@ public class ExerciseGeneratorUi extends Application {
         answerSheet = new VBox(10);
         exService = new ExerciseService(exerciseDao, userDao, questionDao);
         toBeAdded = new ArrayList<>();
+        inputValidator = new InputValidator();
     }
     
     public Node createQuestionNode(Question q) {
@@ -206,6 +209,7 @@ public class ExerciseGeneratorUi extends Application {
         HBox answerPane = new HBox(10);
         HBox namePane = new HBox(10);
         HBox hintPane = new HBox(10);
+        HBox addPane = new HBox(10);
         
         TextField exQuestion = new TextField();
         TextField exHint = new TextField();
@@ -220,8 +224,9 @@ public class ExerciseGeneratorUi extends Application {
         answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
         namePane.getChildren().addAll(new Label("Set name:"), setName, createSet);
         hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
+        addPane.getChildren().addAll(addExercise);
         
-        newExercisePane.getChildren().addAll(creationNotification, questionPane, hintPane, answerPane, addExercise, namePane);       
+        newExercisePane.getChildren().addAll(creationNotification, questionPane, hintPane, answerPane, addPane, namePane);       
         createExerciseScene = new Scene(newExercisePane, 420, 300);
         
         VBox registerPane = new VBox(10);
@@ -297,8 +302,8 @@ public class ExerciseGeneratorUi extends Application {
                 q.setHint(exHint.getText());
             }
             
-            if (q.getQuestion().equals("") || q.getAnswer().equals("")) {
-                creationNotification.setText("Mandatory field missing");
+            if (!inputValidator.questionValidation(q.getQuestion()) || !inputValidator.questionValidation(q.getAnswer())) {
+                creationNotification.setText("Malformed input");
                 creationNotification.setTextFill(Color.RED);
             } else {
                 toBeAdded.add(q);
@@ -309,6 +314,7 @@ public class ExerciseGeneratorUi extends Application {
                 questionPane.getChildren().clear();
                 answerPane.getChildren().clear();
                 hintPane.getChildren().clear();
+                addPane.getChildren().clear();
             }
             exQuestion.setText("");
             exAnswer.setText("");
@@ -333,6 +339,7 @@ public class ExerciseGeneratorUi extends Application {
                     questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
                     answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
                     hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
+                    addPane.getChildren().addAll(addExercise);
                 } else if (toBeAdded.size()<4) {
                     creationNotification.setText("At least 4 questions are required");
                     creationNotification.setTextFill(Color.RED);
