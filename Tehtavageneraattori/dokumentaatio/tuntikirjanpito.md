@@ -17,4 +17,7 @@
 | 25.11.2020 | 4 | Vihjeen mahdollistaminen |
 | 25.11.2020 | 2 | Testien laajennuksia |
 | 27.11.2020 | 2 | Sekvenssikaaviot ja release |
-| yht | 42 | |
+| 1.12.2020 | 2 | Syötteiden validointi ja niiden testit |
+| 1.12.2020 | 1 | Javadoc-kuvaukset |
+| 2.12.2020 | 2 | Tehtävien pisteytys |
+| yht | 47 | |
