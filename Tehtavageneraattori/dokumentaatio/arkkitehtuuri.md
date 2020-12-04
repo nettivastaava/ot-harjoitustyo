@@ -4,7 +4,7 @@
 
 ### Ohjelman toiminnallisuutta sekvenssikaavioina
 
-Alla olevassa kaaviossa kuvataan uuden käyttäjän luomiseen liittyvä toimintalogiikka. Kun rekisteröitymisnäkymissä on syötetty kenttiin uniikki ja vähintään 3 merkkiä pitkä käyttäjätunnus sekä vähintään 5 merkkiä pitkä salasana, klikataan painiketta registerButton. Sovelluslogiikka luo User-olion ja tarkistaa, ovatko olion nimimerkki ja salasana validit. Tämän jälkeen sovelluslogiikka selvittää userDao:n avulla onko käyttäjätunnus jo varattu. Koska vastaavaa nimimerkkiä ei löydy ja palautetaan null, tallettaa sovelluslogiikka User-olion kutsumalla UserDaon metodia create. Lopuksi vielä näkymä vaihdetaan kirjautumisnäkymään, loginSceneen.
+Alla olevassa kaaviossa kuvataan uuden käyttäjän luomiseen liittyvä toimintalogiikka. Kun rekisteröitymisnäkymässä on syötetty kenttiin uniikki ja vähintään 3 merkkiä pitkä käyttäjätunnus sekä vähintään 5 merkkiä pitkä salasana, klikataan painiketta registerButton. Sovelluslogiikka luo User-olion ja tarkistaa, ovatko olion nimimerkki ja salasana validit. Tämän jälkeen sovelluslogiikka selvittää userDao:n avulla onko käyttäjätunnus jo varattu. Koska vastaavaa nimimerkkiä ei löydy ja palautetaan null, tallettaa sovelluslogiikka User-olion kutsumalla UserDaon metodia create. Lopuksi vielä näkymä vaihdetaan kirjautumisnäkymään, loginSceneen.
 
 ![Sekvenssikaavio1](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/sekvenssikaavio1.jpg)
 
