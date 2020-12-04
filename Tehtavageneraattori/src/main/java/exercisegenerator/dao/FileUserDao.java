@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 import exercisegenerator.domain.User;
 
+/**
+* Käyttäjien pysyväistalletuksesta huolehtiva luokka
+*/
 public class FileUserDao implements UserDao {
     private List<User> users;
     private String file;
@@ -29,6 +32,9 @@ public class FileUserDao implements UserDao {
         
     }
     
+    /**
+    * Kirjoittaa luodun käyttäjän tunnuksen ja salasanan tiedostoon erotettuna ;-merkillä
+    */
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (User user : users) {
@@ -37,6 +43,9 @@ public class FileUserDao implements UserDao {
         } 
     }
     
+    /**
+    * Palauttaa kaikki järjestelmään tallennetut käyttäjät
+    */
     @Override
     public List<User> getAll() {
         return users;

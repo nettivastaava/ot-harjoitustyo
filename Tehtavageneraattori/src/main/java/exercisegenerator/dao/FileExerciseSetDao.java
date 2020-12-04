@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+* Tehtäväsarjojen pysyväistalletuksesta huolehtiva luokka
+*/
 public class FileExerciseSetDao implements ExerciseSetDao {
     private List<ExerciseSet> exercises;
     private String file;

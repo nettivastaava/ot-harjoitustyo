@@ -79,7 +79,15 @@ public class Question {
         this.correct = correct;
     }
     
-    
+    public boolean questionValidation() {
+        if (this.question.equals("") || !this.question.matches("^[^;]+$") || this.answer.equals("") || !this.answer.matches("^[^;]+$")) {
+            return false;
+        } else if (this.hint != null && !this.hint.matches("^[^;]+$")) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     
     
           

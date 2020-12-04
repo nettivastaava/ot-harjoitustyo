@@ -22,4 +22,25 @@ public class QuestionTest {
         assertEquals("Wrong answer. You may try again.", q.answerQuestion("1"));
     }
     
+    @Test
+    public void questionCantBeEmpty() {
+        Question question = new Question("", "Kanada");
+        
+        assertFalse(question.questionValidation());
+    }
+    
+    @Test
+    public void answerCantBeEmpty() {
+        Question question = new Question("Onko maa litteä?", "");
+        
+        assertFalse(question.questionValidation());
+    }
+    
+    @Test
+    public void validAnswerReturnsTrue() {
+        Question question = new Question("2+2?", "4");
+        
+        assertTrue(question.questionValidation());
+    }
+    
 }

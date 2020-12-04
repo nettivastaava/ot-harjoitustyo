@@ -5,7 +5,6 @@ import exercisegenerator.dao.FileQuestionDao;
 import exercisegenerator.dao.FileUserDao;
 import exercisegenerator.domain.ExerciseService;
 import exercisegenerator.domain.ExerciseSet;
-import exercisegenerator.domain.InputValidator;
 import exercisegenerator.domain.Question;
 import exercisegenerator.domain.User;
 import java.io.FileInputStream;
@@ -32,6 +31,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+/**
+* Sovelluksen käyttöliittymä
+*/
 public class ExerciseGeneratorUi extends Application {
     private Scene loginScene;
     private Scene registerScene;
@@ -44,7 +46,6 @@ public class ExerciseGeneratorUi extends Application {
     private ArrayList<Question> toBeAdded;
     private VBox exerciseSets;
     private VBox answerSheet;
-    private InputValidator inputValidator;
     private VBox resultPane;
    
     @Override
@@ -63,7 +64,6 @@ public class ExerciseGeneratorUi extends Application {
         answerSheet = new VBox(10);
         exService = new ExerciseService(exerciseDao, userDao, questionDao);
         toBeAdded = new ArrayList<>();
-        inputValidator = new InputValidator();
         resultPane = new VBox(10);
     }
     
@@ -114,6 +114,7 @@ public class ExerciseGeneratorUi extends Application {
         finish.setOnAction(e-> {
             window.setScene(resultScene);
             showPoints(ex.getQuestions(), window);
+            ex.resetCorrectAnswers();
         });
     }
     
@@ -325,7 +326,7 @@ public class ExerciseGeneratorUi extends Application {
                 q.setHint(exHint.getText());
             }
             
-            if (!inputValidator.questionValidation(q.getQuestion()) || !inputValidator.questionValidation(q.getAnswer())) {
+            if (!q.questionValidation()) {
                 creationNotification.setText("Malformed input");
                 creationNotification.setTextFill(Color.RED);
             } else {

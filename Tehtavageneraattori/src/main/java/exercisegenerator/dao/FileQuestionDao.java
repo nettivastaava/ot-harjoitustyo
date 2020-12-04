@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+* Kysymysten pysyväistalletuksesta huolehtiva luokka
+*/
 public class FileQuestionDao implements QuestionDao {
     private List<Question> questions;
     private String file;

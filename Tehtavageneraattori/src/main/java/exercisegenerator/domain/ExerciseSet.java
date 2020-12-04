@@ -53,4 +53,13 @@ public class ExerciseSet {
             q.setSetName(name);
         }
     }
+    
+    /**
+     * Metodi käy läpi sarjan kysymykset ja alustaa ne vastaamattomiksi/vääriksi.
+     */
+    public void resetCorrectAnswers() {
+        for (Question q: questions) {
+            q.setCorrect(false);
+        }
+    }
 }

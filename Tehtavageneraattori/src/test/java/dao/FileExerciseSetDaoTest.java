@@ -4,6 +4,7 @@ import exercisegenerator.dao.ExerciseSetDao;
 import exercisegenerator.dao.FileExerciseSetDao;
 import exercisegenerator.dao.QuestionDao;
 import exercisegenerator.domain.ExerciseSet;
+import exercisegenerator.domain.Question;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
@@ -61,6 +62,29 @@ public class FileExerciseSetDaoTest {
         ExerciseSet exSet = exerciseDao.findOne("Kemia");
         
         assertEquals(exSet, null);
+    }
+    
+    @Test
+    public void correctIsFalseAtStart() {
+         ExerciseSet exSet = exerciseDao.findOne("Matematiikka");
+         List<Question> questions = exSet.getQuestions();
+         
+         for (Question q: questions) {
+             assertFalse(q.isCorrect());
+         }
+    }
+    
+    @Test
+    public void resetCorrectWorks() {
+         ExerciseSet exSet = exerciseDao.findOne("Matematiikka");
+         List<Question> questions = exSet.getQuestions();
+         
+         questions.get(0).setCorrect(true);
+         exSet.resetCorrectAnswers();
+         
+         for (Question q: questions) {
+             assertFalse(q.isCorrect());
+         }
     }
     
     @After
