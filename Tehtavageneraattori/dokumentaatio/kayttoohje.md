@@ -16,8 +16,12 @@ Ohjelma käynnistyy komennolla
 
 Sovellus käynnistyy kirjautumisnäkymään:
 
+![login](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/login.jpg)
+
 Kirjautumaan pääsee kirjoittamalla järjestelmään tallennettu käyttäjätunnus ja sille kuuluva salasana näkymän kenttiin ja painamalla login-nappulaa.
 
 ### Rekisteröityminen
 
 Uuden käyttäjän luominen onnistuu rekisteröitymisnäkymässä, johon pääsee kirjautumisnäkymän painikkeella "create a new user".
+
+![register](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/register.jpg)
