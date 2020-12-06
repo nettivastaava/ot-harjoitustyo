@@ -24,6 +24,7 @@ Sovellus koostuu viidestä eri näkymästä.
    - [x] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
        - [x] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
        - [ ] Vastauksen jälkeen järjestelmä näyttää oikean vastauksen
+       - [x] Kun jokaiseen sarjan tehtävään on vastattu, näytetään käyttäjälle sarjasta saatu pistemäärä
        - [x] Kun jokaiseen sarjan tehtävään on vastattu, palataan tehtäväsarjat sisältävään näkymään
    - [x] Käyttäjä voi kirjautua ulos järjestelmästä
       
