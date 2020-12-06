@@ -10,7 +10,7 @@ Käyttöliittymässä on kuusi erillistä näkymää:
   - tehtäväsarjan ratkaiseminen
   - pistenäkymä
   
-Jokainen näkymä on toteutettu omana Scene-oliona, joka tarvittaessa sijoitetaan näytettäväksi sovelluksen stagelle. Itse käyttöliittymän koodi on eristetty luokkaan exercisegenerator.ui.ExerciseGeneratorUi. Sovelluslogiikka on sijoitettu pakkauksen exercisegenerator.domain alle ja tietojen pysyväistalletuksesta huolehtivat luokat pakkaukseen exercisegenerator.dao.
+Jokainen näkymä on toteutettu omana Scene-oliona, joka tarvittaessa sijoitetaan näytettäväksi sovelluksen stagelle. Itse käyttöliittymän koodi on eristetty luokkaan exercisegenerator.ui.ExerciseGeneratorUi.
 
 ## Luokka/pakkauskaavio
 
