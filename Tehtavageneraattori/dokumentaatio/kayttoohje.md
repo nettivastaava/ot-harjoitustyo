@@ -18,7 +18,7 @@ Sovellus käynnistyy kirjautumisnäkymään:
 
 ![login](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/login.jpg)
 
-Kirjautumaan pääsee kirjoittamalla järjestelmään tallennettu käyttäjätunnus ja sille kuuluva salasana näkymän kenttiin ja painamalla login-nappulaa.
+Kirjautumaan pääsee kirjoittamalla järjestelmään tallennettu käyttäjätunnus ja sille kuuluva salasana näkymän kenttiin ja painamalla login-painiketta.
 
 ### Rekisteröityminen
 
@@ -30,6 +30,10 @@ Mikäli rekisteröityminen onnistuu, palataan kirjautumisnäkymään.
 
 ### Tehtäväsarjan luominen
 
-Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä.
+Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä. Näkymästä on mahdollisuus siirtyä ratkomaan tehtäväsarjoja painikkeella done sekä luomaan uutta tehtäväsarjaa painikkeella create new.
 
 ![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)
+
+Uuden tehtäväsarjan luomisessa käytettävä lomake kuvattu alla. Tehtäväsarjaan on lisättävä vähintään 4 ja enintään 8 tehtävää, jonka jälkeen sarjalle annetaan nimi ja painetaan create-painiketta.
+
+![createEx](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/createEx.jpg)
