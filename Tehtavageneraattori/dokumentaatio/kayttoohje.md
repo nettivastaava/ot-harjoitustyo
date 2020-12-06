@@ -25,3 +25,11 @@ Kirjautumaan pääsee kirjoittamalla järjestelmään tallennettu käyttäjätun
 Uuden käyttäjän luominen onnistuu rekisteröitymisnäkymässä, johon pääsee kirjautumisnäkymän painikkeella "create a new user".
 
 ![register](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/register.jpg)
+
+Mikäli rekisteröityminen onnistuu, palataan kirjautumisnäkymään.
+
+### Tehtäväsarjan luominen
+
+Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä.
+
+![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)
