@@ -1,3 +1,16 @@
+# Arkkitehtuurikuvaus
+
+## Käyttöliittymä
+
+Käyttöliittymässä on kuusi erillistä näkymää:
+  - kirjautuminen
+  - rekisteröityminen
+  - lista tehtäväsarjoista
+  - uuden tehtäväsarjan luominen
+  - tehtäväsarjan ratkaiseminen
+  - pistenäkymä
+ Jokainen näkymä on toteutettu omana Scene-oliona, joka tarvittaessa sijoitetaan näytettäväksi sovelluksen stagelle. Itse käyttöliittymän koodi on eristetty luokkaan exercisegenerator.ui.ExerciseGeneratorUi. Sovelluslogiikka on sijoitettu pakkauksen exercisegenerator.domain alle ja tietojen pysyväistalletuksesta huolehtivat luokat pakkaukseen exercisegenerator.dao.
+
 ## Luokka/pakkauskaavio
 
 ![Pakkauskaavio](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/pakkauskaavio.jpg)
