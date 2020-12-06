@@ -20,4 +20,5 @@
 | 1.12.2020 | 2 | Syötteiden validointi ja niiden testit |
 | 1.12.2020 | 1 | Javadoc-kuvaukset |
 | 2.12.2020 | 2 | Tehtävien pisteytys |
+| 6.12.2020 | 3 | Käyttöohje ja dokumentaation parantelua |
 | yht | 47 | |
