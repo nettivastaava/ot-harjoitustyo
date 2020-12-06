@@ -16,8 +16,20 @@ Ohjelma käynnistyy komennolla
 
 Sovellus käynnistyy kirjautumisnäkymään:
 
+![login](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/login.jpg)
+
 Kirjautumaan pääsee kirjoittamalla järjestelmään tallennettu käyttäjätunnus ja sille kuuluva salasana näkymän kenttiin ja painamalla login-nappulaa.
 
 ### Rekisteröityminen
 
 Uuden käyttäjän luominen onnistuu rekisteröitymisnäkymässä, johon pääsee kirjautumisnäkymän painikkeella "create a new user".
+
+![register](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/register.jpg)
+
+Mikäli rekisteröityminen onnistuu, palataan kirjautumisnäkymään.
+
+### Tehtäväsarjan luominen
+
+Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä.
+
+![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)

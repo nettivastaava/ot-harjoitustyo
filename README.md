@@ -5,6 +5,8 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 
 ### Dokumentaatio
 
+[Käyttöohje](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/vaatimusmaarittely.md)
 
 [Työaikakirjanpito](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/tuntikirjanpito.md)
