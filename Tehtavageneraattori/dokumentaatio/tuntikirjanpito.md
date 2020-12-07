@@ -21,4 +21,6 @@
 | 1.12.2020 | 1 | Javadoc-kuvaukset |
 | 2.12.2020 | 2 | Tehtävien pisteytys |
 | 6.12.2020 | 3 | Käyttöohje ja dokumentaation parantelua |
-| yht | 50 | |
+| 7.12.2020 | 1 | Arkkitehtuurikuvauksen laajennus |
+| 7.12.2020 | 3 | Oikean vastauksen näyttäminen pisteytyksen yhteydessä ja testejä |
+| yht | 54 | |
