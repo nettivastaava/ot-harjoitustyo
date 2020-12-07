@@ -15,6 +15,9 @@ public class FileUserDao implements UserDao {
     private List<User> users;
     private String file;
 
+    /**
+    * Lisää käyttäjän listalle  ja kutsuu save()-metodia
+    */
     public FileUserDao(String file) throws Exception {
         users = new ArrayList<>();
         this.file = file;
@@ -51,6 +54,13 @@ public class FileUserDao implements UserDao {
         return users;
     }
     
+    /**
+    * Etsii ja palauttaa järjestelmästä käyttäjän käyttäjänimen perusteella
+    * 
+    * @param username käyttäjän nimeä vastaava merkkijono
+    * 
+    * @return Löydetty käyttäjäolio tai null, mikäli käyttäjää ei löytynyt
+    */
     @Override
     public User findByUsername(String username) {
         return users.stream()
@@ -60,6 +70,13 @@ public class FileUserDao implements UserDao {
             .orElse(null);
     }
     
+    /**
+    * Lisää käyttäjän listalle  ja kutsuu save()-metodia
+    * 
+    * @param user listalle lisättävä käyttäjäolio
+    * 
+    * @return parametrina annettu käyttäjäolio
+    */
     @Override
     public User create(User user) throws Exception {
         users.add(user);
@@ -67,6 +84,9 @@ public class FileUserDao implements UserDao {
         return user;
     }
 
+    /**
+    * Etsii ja palauttaa järjestelmästä käyttäjän käyttäjänimen ja salasanan perusteella
+    */
     @Override
     public User findByUsernameAndPassword(String username, String password) {
         for (User u: users) {

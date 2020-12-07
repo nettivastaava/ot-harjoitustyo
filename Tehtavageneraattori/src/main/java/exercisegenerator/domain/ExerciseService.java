@@ -119,7 +119,7 @@ public class ExerciseService {
     }
     
      /**
-     * Metodia käytetään kirjaamaan käyttäjä ulos järjestelmästä. Käyttäjän yksilöivä muuttuja loggedUser saa arvon null.
+     * Metodia käytetään kirjaamaan käyttäjä ulos järjestelmästä.
      * 
      */
     public void logout() {

@@ -26,13 +26,13 @@ public class UserTest {
     
     @Test
     public void returnsTrueWhenValid() {
-        User user1 = new User("Heimo", "kissa");
+        User user1 = new User("Kai", "kissa");
         assertTrue(user1.isValid());
     }
     
     @Test
     public void returnsFalseWhenUsernameIsTooShort() {
-        User user1 = new User("He", "kissa");
+        User user1 = new User("Ka", "kissa");
         assertFalse(user1.isValid());
     }
     

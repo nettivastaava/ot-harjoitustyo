@@ -37,6 +37,9 @@ public class FileQuestionDao implements QuestionDao {
         }
     }
     
+    /**
+    * Kirjoittaa luodun kysymyksen, vastauksen ja mahdollisen vihjeen tiedostoon erotettuna ;-merkillä
+    */
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (Question q: questions) {
@@ -48,7 +51,14 @@ public class FileQuestionDao implements QuestionDao {
             }           
         } 
     }
-
+    
+    /**
+    * Lisää kysymyksen listalle  ja kutsuu save()-metodia
+    * 
+    * @param q Listalle lisättävä kysymys
+    * 
+    * @return parametrina annettu kysymysolio
+    */
     @Override
     public Question create(Question q) throws Exception {
         questions.add(q);
@@ -56,6 +66,13 @@ public class FileQuestionDao implements QuestionDao {
         return q;
     }
 
+    /**
+    * Etsii ja palauttaa järjestelmästä kaikki tiettyyn tehtäväsarjaan kuuluvat kysymykset listana
+    * 
+    * @param set Tehtäväsarjan nimeä vastaava merkkijono
+    * 
+    * @return Lista tehtäväsarjaan kuuluvista kysymyksistä
+    */
     @Override
     public List findBySetName(String set) {
         ArrayList<Question> list = new ArrayList<>();

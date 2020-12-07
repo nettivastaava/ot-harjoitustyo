@@ -44,6 +44,9 @@ public class FileExerciseSetDao implements ExerciseSetDao {
         }    
     }
     
+    /**
+    * Kirjoittaa luodun tehtäväsarjan nimen tiedostoon
+    */
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (ExerciseSet exSet : exercises) {
@@ -51,11 +54,23 @@ public class FileExerciseSetDao implements ExerciseSetDao {
             }           
         } 
     }
-
+    
+    /**
+    * Palauttaa kaikki järjestelmään tallennetut tehtäväsarjat
+    * 
+    * @return Lista järjestelmään tallennetuista tehtäväsarjoista
+    */
     public List<ExerciseSet> getAll() {
         return exercises;
     }
 
+    /**
+    * Etsii ja palauttaa järjestelmästä tietyn tehtäväsarjan nimen perusteella
+    * 
+    * @param setName Tehtäväsarjan nimeä vastaava merkkijono
+    * 
+    * @return Tehtäväsarjaolio tai null, mikäli sarjaa ei ole tallennettu järjestelmään
+    */
     public ExerciseSet findOne(String setName) {
         for (ExerciseSet ex: exercises) {
             if (ex.getName().equals(setName)) {
@@ -64,7 +79,14 @@ public class FileExerciseSetDao implements ExerciseSetDao {
         }
         return null;
     }
-        
+     
+    /**
+    * Lisää tehtäväsarjan listalle  ja kutsuu save()-metodia
+    * 
+    * @param exSet Listalle lisättävä tehtäväsarjaolio
+    * 
+    * @return parametrina annettu tehtäväsarjaolio
+    */
     public ExerciseSet create(ExerciseSet exSet) throws Exception {
         exercises.add(exSet);
         save();

@@ -16,7 +16,7 @@ public class QuestionTest {
     }
     
     @Test
-    public void answeringQuestionsWork() {
+    public void questionFeedback() {
         assertEquals("CORRECT", q.answerQuestion("2"));
         assertEquals("Mandatory field missing.", q.answerQuestion(""));
         assertEquals("Wrong answer. You may try again.", q.answerQuestion("1"));

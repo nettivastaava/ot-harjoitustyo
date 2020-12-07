@@ -23,6 +23,7 @@ public class FileExerciseSetDaoTest {
     File questionFile;
     ExerciseSetDao exerciseDao;
     QuestionDao questionDao;
+    ExerciseSet exSet;
     
     @Before
     public void setUp() throws Exception {
@@ -39,7 +40,8 @@ public class FileExerciseSetDaoTest {
         }
         
         exerciseDao = new FileExerciseSetDao(exerciseFile.getAbsolutePath(), questionFile.getAbsolutePath());
-    }
+        exSet = exerciseDao.findOne("Matematiikka");
+    }    
     
     @Test
     public void exercisesAreReadCorrectlyFromFile() {
@@ -51,22 +53,20 @@ public class FileExerciseSetDaoTest {
     }
     
     @Test
-    public void exerciseSetIsFound() {
-        ExerciseSet exSet = exerciseDao.findOne("Matematiikka");
+    public void exerciseSetIsFound() {       
 
         assertEquals("Matematiikka", exSet.getName());
     }
     
     @Test
     public void nonExistingSetIsNotFound() {
-        ExerciseSet exSet = exerciseDao.findOne("Kemia");
+        ExerciseSet exSet2 = exerciseDao.findOne("Kemia");
         
-        assertEquals(exSet, null);
+        assertEquals(exSet2, null);
     }
     
     @Test
     public void correctIsFalseAtStart() {
-         ExerciseSet exSet = exerciseDao.findOne("Matematiikka");
          List<Question> questions = exSet.getQuestions();
          
          for (Question q: questions) {
@@ -75,8 +75,14 @@ public class FileExerciseSetDaoTest {
     }
     
     @Test
+    public void pointsAreCountedCorrectly() {
+        assertEquals(0, exSet.countPoints());
+        exSet.getQuestions().get(0).setCorrect(true);
+        assertEquals(1, exSet.countPoints());
+    }
+    
+    @Test
     public void resetCorrectWorks() {
-         ExerciseSet exSet = exerciseDao.findOne("Matematiikka");
          List<Question> questions = exSet.getQuestions();
          
          questions.get(0).setCorrect(true);

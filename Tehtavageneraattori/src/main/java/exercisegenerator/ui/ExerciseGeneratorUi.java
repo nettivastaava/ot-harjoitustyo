@@ -21,10 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
@@ -73,9 +70,12 @@ public class ExerciseGeneratorUi extends Application {
         HBox answerBox = new HBox(10);
         Label question = new Label(q.getQuestion());
         Label message = new Label();
+        Region spacer = new Region();
+        VBox.setVgrow(spacer, Priority.ALWAYS);
         Button hintButton = new Button("Hint");
         hintButton.setOnAction(e-> {
            message.setText(q.getHint());
+           message.setTextFill(Color.BLACK);
         });
         Label answerLabel = new Label("Answer");
         TextField answerInput = new TextField();
@@ -97,7 +97,7 @@ public class ExerciseGeneratorUi extends Application {
             hintBox.getChildren().addAll(message);       
         }   
         answerBox.getChildren().addAll(answerLabel, answerInput, answerButton);
-        box.getChildren().addAll(question, hintBox, answerBox);
+        box.getChildren().addAll(question, hintBox, answerBox, spacer);
         return box;
     }
     
@@ -113,27 +113,51 @@ public class ExerciseGeneratorUi extends Application {
         answerSheet.getChildren().addAll(finish);
         finish.setOnAction(e-> {
             window.setScene(resultScene);
-            showPoints(ex.getQuestions(), window);
-            ex.resetCorrectAnswers();
+            showPoints(ex, window);
         });
     }
     
-    public void showPoints(ArrayList<Question> questions, Stage window) {
+    public Node createCorrectAnswerNode(Question q) {
+        VBox vbox = new VBox(10);
+        HBox questionBox = new HBox(10);
+        HBox answerBox = new HBox(10);
+        Region spacer = new Region();
+        VBox.setVgrow(spacer, Priority.ALWAYS);
+        
+        questionBox.getChildren().addAll(new Label("Question: " + q.getQuestion()));
+        answerBox.getChildren().addAll(new Label("Answer: " +q.getAnswer()));
+        vbox.getChildren().addAll(questionBox, answerBox, spacer);
+        
+        return vbox;
+    }
+    
+    public void showPoints(ExerciseSet exSet, Stage window) {
         resultPane.getChildren().clear();
-        int points = 0;
-        for (Question q: questions) {
-            if (q.isCorrect()) {
-                points++;
-            }
-        }      
+        HBox hbox = new HBox(10);
+        VBox correctAnswers = new VBox(10);
+        int points = exSet.countPoints();
         Button toMenu = new Button("Return to main menu");
+        Button showCorrectButton = new Button("Show correct answers");
+        HBox showButtonBox = new HBox(10);
         
         toMenu.setOnAction(e-> {
+            exSet.resetCorrectAnswers();
             window.setScene(exercisesScene);
         });
         
-        resultPane.getChildren().addAll(new Label("You got " + points + "/" + questions.size() + " points"), toMenu);
-        
+        showCorrectButton.setOnAction(e-> {
+            for (Question q: exSet.getIncorrect()) {
+                correctAnswers.getChildren().add(createCorrectAnswerNode(q));
+            }
+            showButtonBox.getChildren().clear();
+        });
+      
+        showButtonBox.getChildren().addAll(showCorrectButton);
+        hbox.getChildren().addAll(new Label("You got " + points + "/" + exSet.getQuestions().size() + " points"), toMenu);
+        resultPane.getChildren().addAll(new Label(exSet.getName()), hbox, correctAnswers);
+        if (points!=exSet.getQuestions().size()) {
+            resultPane.getChildren().addAll(showButtonBox);
+        }
     }
     
     public Node createExerciseNode(ExerciseSet ex, Stage window) {
@@ -265,22 +289,21 @@ public class ExerciseGeneratorUi extends Application {
         registerScene = new Scene(registerPane, 420, 300);
         
         ScrollPane scrollPaneQuestions = new ScrollPane();   
-        BorderPane questionsPane = new BorderPane(scrollPaneQuestions);
-        
+        BorderPane questionsPane = new BorderPane(scrollPaneQuestions);       
         scrollPaneQuestions.setContent(answerSheet);
                      
-        solveExerciseScene = new Scene(questionsPane, 420, 300);
-        
+        solveExerciseScene = new Scene(questionsPane, 420, 300);        
         resultScene = new Scene(resultPane, 420, 300);
-        
-        
-        
+               
         loginButton.setOnAction(e-> {
-            String username = usernameInput.getText();
+            String username =usernameInput.getText();
             String password = passwordInput.getText();
             if (exService.login(username, password)) {
                 updateExercises(window);
                 window.setScene(exercisesScene);
+                usernameInput.setText("");
+                passwordInput.setText("");
+                
             } else {
                 loginNotification.setText("invalid credentials");
                 loginNotification.setTextFill(Color.RED);
@@ -293,7 +316,9 @@ public class ExerciseGeneratorUi extends Application {
         });
         
         toRegistrationButton.setOnAction(e-> {          
-            window.setScene(registerScene);         
+            window.setScene(registerScene);  
+            usernameInput.setText("");
+            passwordInput.setText("");
         });  
         
         registerButton.setOnAction(e-> {
@@ -310,6 +335,8 @@ public class ExerciseGeneratorUi extends Application {
                 window.setScene(loginScene);
                 loginNotification.setText("user created successfully");
                 loginNotification.setTextFill(Color.GREEN);
+                usernameRegInput.setText("");
+                passwordRegInput.setText("");
             } else {
                 registerNotification.setText("username is not available");     
                 registerNotification.setTextFill(Color.RED);
