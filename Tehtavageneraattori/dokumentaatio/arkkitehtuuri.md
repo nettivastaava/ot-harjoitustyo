@@ -1,3 +1,33 @@
+# Arkkitehtuurikuvaus
+
+## Käyttöliittymä
+
+Käyttöliittymässä on kuusi erillistä näkymää:
+  - kirjautuminen
+  - rekisteröityminen
+  - lista tehtäväsarjoista
+  - uuden tehtäväsarjan luominen
+  - tehtäväsarjan ratkaiseminen
+  - pistenäkymä
+  
+Jokainen näkymä on toteutettu omana Scene-oliona, joka tarvittaessa sijoitetaan näytettäväksi sovelluksen stagelle. Itse käyttöliittymän koodi on eristetty luokkaan exercisegenerator.ui.ExerciseGeneratorUi.
+
+## Sovelluslogiikka
+
+Sovelluksen looginen datamalli muodostuu luokista User, ExerciseSet ja Question, jotka kuvaavat käyttäjiä, tehtäväsarjoja ja tehtäväsarjoihin kuuluvia kysymyksiä.
+
+Sovelluslogiikka on sijoitettu pakkauksen exercisegenerator.domain sisälle. Pakkauksesta löytyvät luokat User, ExerciseSet, Question sekä ExerciseService, jonka vastuulla on suuri osa käyttöliittymän toiminnallisuudesta.
+
+ExerciseServicellä on pääsy käyttäjien, tehtäväsarjojen ja kysymysten tietoihin Dao-luokkien avulla. 
+
+## Tietojen pysyväistalletus
+
+Pakkaukseen exercisegenerator.dao sijoitetut luokat FileUserDao ja FileExerciseSetDao ja FileQuestionDao huolehtivat tietojen tallentamisesta tiedostoihin. Rajapintojen UserDao, ExerciseSetDao ja QuestionDao taakse piilotetut luokat noudattavat Data Access Object -suunnittelumallia (DAO).
+
+### Tiedostot
+
+Sovellus tallentaa käyttäjien, tehtäväsarjojen ja kysymysten tiedot erillisiin tiedostoihin. Tiedostojen nimet määritellään sovelluksen juuressa sijaitsevassa tiedostossa config.properties.
+
 ## Luokka/pakkauskaavio
 
 ![Pakkauskaavio](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/pakkauskaavio.jpg)
