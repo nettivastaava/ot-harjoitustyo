@@ -103,8 +103,6 @@ public class ExerciseGeneratorUi extends Application {
     
     public void solveExercise(ExerciseSet ex, Stage window) {       
         answerSheet.getChildren().clear();
-        System.out.println(ex.getQuestions().size());
-        System.out.println(ex.getName());
         List<Question> questions = ex.getQuestions();
         questions.forEach(q-> {
             answerSheet.getChildren().add(createQuestionNode(q));
@@ -157,6 +155,10 @@ public class ExerciseGeneratorUi extends Application {
         resultPane.getChildren().addAll(new Label(exSet.getName()), hbox, correctAnswers);
         if (points!=exSet.getQuestions().size()) {
             resultPane.getChildren().addAll(showButtonBox);
+        } else {
+            Label allCorrectLabel = new Label("Well done!");
+            allCorrectLabel.setTextFill(Color.GREEN);
+            resultPane.getChildren().addAll(allCorrectLabel);
         }
     }
     
@@ -169,7 +171,6 @@ public class ExerciseGeneratorUi extends Application {
             window.setScene(solveExerciseScene);
             solveExercise(ex, window);          
         });
-        System.out.println(label);
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         box.setPadding(new Insets(0, 5, 0, 5));
@@ -182,7 +183,6 @@ public class ExerciseGeneratorUi extends Application {
         exerciseSets.getChildren().clear();    
            
         List<ExerciseSet> currentSets = exService.exercisesList();
-        System.out.println("sets: "+ currentSets.size());
         currentSets.forEach(set-> {
             exerciseSets.getChildren().add(createExerciseNode(set, window));
         });     
@@ -303,6 +303,7 @@ public class ExerciseGeneratorUi extends Application {
                 window.setScene(exercisesScene);
                 usernameInput.setText("");
                 passwordInput.setText("");
+                loginNotification.setText("");
                 
             } else {
                 loginNotification.setText("invalid credentials");
