@@ -34,6 +34,6 @@ Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut teht
 
 ![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)
 
-Uuden tehtäväsarjan luomisessa käytettävä lomake kuvattu alla. Tehtäväsarjaan lisätään kysymys täyttämällä lomakkeen kenttiin kysymys ja vastaus minkä jälkeen klikataan add-painiketta. Vihjettä kysymykselle ei ole välttämätöntä lisätä. Tehtäväsarjaan on lisättävä vähintään 4 ja enintään 8 kysymystä, jonka jälkeen sarjalle annetaan nimi ja painetaan create-painiketta.
+Uuden tehtäväsarjan luomisessa käytettävä lomake kuvattu alla. Tehtäväsarjaan lisätään kysymys täyttämällä lomakkeen kenttiin kysymys ja vastaus minkä jälkeen klikataan add-painiketta. Vihjeen lisääminen kysymykselle ei ole välttämätöntä. Tehtäväsarjaan on lisättävä vähintään 4 ja enintään 8 kysymystä, jonka jälkeen sarjalle annetaan nimi ja painetaan create-painiketta.
 
 ![createEx](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/createEx.jpg)
