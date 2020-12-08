@@ -12,7 +12,7 @@ Ohjelma olettaa, että sen käynnistyshakemistossa on konfiguraatiotiedosto conf
 ### Ohjelman käynnistäminen
 
 Ohjelma käynnistyy komennolla
-  java -jar exercisegenerator.jar
+  java -jar ./target/exercisegenerator.jar
   
 ### Kirjautuminen
 
