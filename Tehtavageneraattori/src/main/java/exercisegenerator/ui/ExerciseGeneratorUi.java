@@ -219,6 +219,8 @@ public class ExerciseGeneratorUi extends Application {
         window.show();
         
         Button registerButton = new Button("create");
+        Button returnToLogin = new Button("return to login page");
+        returnToLogin.setPadding(new Insets(10));
         
         ScrollPane scrollPane = new ScrollPane();      
         BorderPane mainPane = new BorderPane(scrollPane);       
@@ -249,7 +251,7 @@ public class ExerciseGeneratorUi extends Application {
         mainPane.setBottom(createExerciseButton);
         mainPane.setTop(menuPane);         
                        
-        exercisesScene = new Scene(mainPane, 420, 300, Color.KHAKI);
+        exercisesScene = new Scene(mainPane, 420, 300);
         
         VBox newExercisePane = new VBox(10);
         HBox questionPane = new HBox(10);
@@ -279,13 +281,15 @@ public class ExerciseGeneratorUi extends Application {
         VBox registerPane = new VBox(10);
         HBox inputPaneUpper2 = new HBox(10);   
         HBox inputPaneLower2 = new HBox(10);
+        HBox buttonPane = new HBox(10);
         registerPane.setPadding(new Insets(10));
                        
         inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput);
         inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
+        buttonPane.getChildren().addAll(registerButton, returnToLogin);
         Label registerLabel = new Label("Registration");
                         
-        registerPane.getChildren().addAll(registerNotification, registerLabel, inputPaneUpper2, inputPaneLower2, registerButton);                   
+        registerPane.getChildren().addAll(registerNotification, registerLabel, inputPaneUpper2, inputPaneLower2, buttonPane);                   
         registerScene = new Scene(registerPane, 420, 300);
         
         ScrollPane scrollPaneQuestions = new ScrollPane();   
@@ -343,6 +347,12 @@ public class ExerciseGeneratorUi extends Application {
                 registerNotification.setTextFill(Color.RED);
             }           
         }); 
+        
+        returnToLogin.setOnAction(e-> {
+            usernameRegInput.setText("");
+            passwordRegInput.setText("");
+            window.setScene(loginScene); 
+        });
         
         createExerciseButton.setOnAction(e-> {            
             window.setScene(createExerciseScene);
