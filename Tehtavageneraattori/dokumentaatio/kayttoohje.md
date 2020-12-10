@@ -1,5 +1,7 @@
 ## Käyttöohje
 
+Lataa tiedosto [exercisegenerator.app](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/viikko6)
+
 ### Konfigurointi
 
 Ohjelma olettaa, että sen käynnistyshakemistossa on konfiguraatiotiedosto config.properties, joka määrittelee käyttäjät, tehtäväsarjat ja kysymykset tallettavien tiedostojen nimet. Tiedoston sisältö on seuraava
@@ -10,7 +12,7 @@ Ohjelma olettaa, että sen käynnistyshakemistossa on konfiguraatiotiedosto conf
 ### Ohjelman käynnistäminen
 
 Ohjelma käynnistyy komennolla
-  java -jar exerciseapp.jar
+  java -jar ./target/exercisegenerator.jar
   
 ### Kirjautuminen
 
