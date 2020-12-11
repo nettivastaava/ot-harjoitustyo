@@ -23,4 +23,5 @@
 | 6.12.2020 | 3 | Käyttöohje ja dokumentaation parantelua |
 | 7.12.2020 | 1 | Arkkitehtuurikuvauksen laajennus |
 | 7.12.2020 | 3 | Oikean vastauksen näyttäminen pisteytyksen yhteydessä ja testejä |
-| yht | 54 | |
+| 11.12.2020 | 1 | Cancel-painikkeiden lisääminen |
+| yht | 55 | |
