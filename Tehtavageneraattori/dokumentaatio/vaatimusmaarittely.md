@@ -1,7 +1,7 @@
 # **Vaatimusmäärittely**
 
 ### **Sovelluksen käyttötarkoitus**
-Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden tekemiä tehtäväsarjoja.
+Sovelluksen avulla käyttäjien on mahdollista luoda uusia sekä ratkoa aiemmin luotuja tehtäväsarjoja.
 
 ### **Käyttäjät**
 Sovelluksessa tulee olemaan vain yhdenlaisia, peruskäyttäjiä.
@@ -21,7 +21,7 @@ Sovellus koostuu kuudesta eri näkymästä.
    - [x] Käyttäjä voi luoda uuden tehtäväsarjan
        - [x] Tehtäväsarjassa on oltava vähintään 4 ja enintään 8 tehtävää
        - [x] Tehtävälle on mahdollista asettaa ratkaisuvihje
-   - [x] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
+   - [x] Käyttäjä voi ratkoa järjestelmään luotuja tehtäväsarjoja
        - [x] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
        - [x] Vastausten jälkeen oikeita vastauksia voi pyytää näytettäviksi
        - [x] Kun jokaiseen sarjan tehtävään on vastattu, näytetään käyttäjälle sarjasta saatu pistemäärä
