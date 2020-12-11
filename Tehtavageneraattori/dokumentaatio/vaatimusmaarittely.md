@@ -13,6 +13,7 @@ Sovellus koostuu viidestä eri näkymästä.
 
 ### **Ennen kirjautumista**
    - [x] Käyttäjä voi luoda järjestelmään uuden käyttäjätunnuksen
+      - [x] Käyttäjänimen oltava uniikki sekä vähintään 3 merkkiä ja salasanan 5 merkkiä pitkä
    - [x] Käyttäjä voi kirjautua sisään luomillaan tunnuksilla
 
 ### **Kirjautumisen jälkeen**
@@ -20,10 +21,9 @@ Sovellus koostuu viidestä eri näkymästä.
    - [x] Käyttäjä voi luoda uuden tehtäväsarjan
        - [x] Tehtäväsarjassa on oltava vähintään 4 ja enintään 8 tehtävää
        - [x] Tehtävälle on mahdollista asettaa ratkaisuvihje
-   - [ ] Käyttäjä voi poistaa itse luomansa tehtäväsarjan
    - [x] Käyttäjä voi ratkoa muiden luomia tehtäväsarjoja
        - [x] Käyttäjä voi halutessaan pyytää vihjeen näytettäväksi, mikäli tehtävällä on sellainen
-       - [x] Vastauksen jälkeen oikeaa vastausta voi pyytää näytettäväksi
+       - [x] Vastausten jälkeen oikeita vastauksia voi pyytää näytettäviksi
        - [x] Kun jokaiseen sarjan tehtävään on vastattu, näytetään käyttäjälle sarjasta saatu pistemäärä
        - [x] Kun jokaiseen sarjan tehtävään on vastattu, palataan tehtäväsarjat sisältävään näkymään
    - [x] Käyttäjä voi kirjautua ulos järjestelmästä
@@ -34,3 +34,4 @@ Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seura
     • Käyttäjä voi eritellä, ketkä voivat nähdä ja ratkoa hänen lisäämänsä tehtäväsarjan
     • Käyttäjä näkee jokaisesta tehtäväsarjasta saamansa pisteet
     • Jokaisesta tehtäväsarjasta näkee, paljonko pisteitä kukin käyttäjä on siitä saanut
+    • Käyttäjä voi poistaa itse luomansa tehtäväsarjan
