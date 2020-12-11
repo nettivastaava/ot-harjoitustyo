@@ -219,7 +219,7 @@ public class ExerciseGeneratorUi extends Application {
         window.show();
         
         Button registerButton = new Button("create");
-        Button returnToLogin = new Button("return to login page");
+        Button returnToLogin = new Button("cancel");
         returnToLogin.setPadding(new Insets(10));
         
         ScrollPane scrollPane = new ScrollPane();      
@@ -227,6 +227,9 @@ public class ExerciseGeneratorUi extends Application {
         HBox menuPane = new HBox(10);       
         
         Region menuSpacer = new Region();
+        Region createQuestionSpacer = new Region();
+        
+        HBox.setHgrow(createQuestionSpacer, Priority.ALWAYS);
         HBox.setHgrow(menuSpacer, Priority.ALWAYS);
         Button logoutButton = new Button("logout");
    
@@ -268,8 +271,9 @@ public class ExerciseGeneratorUi extends Application {
         
         Button addExercise = new Button("add");
         Button createSet = new Button("create");
+        Button returnToMainMenu = new Button("Cancel");
         
-        questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
+        questionPane.getChildren().addAll(new Label("Question:"), exQuestion, createQuestionSpacer, returnToMainMenu);
         answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
         namePane.getChildren().addAll(new Label("Set name:"), setName, createSet);
         hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
@@ -384,6 +388,27 @@ public class ExerciseGeneratorUi extends Application {
             
         });
         
+        returnToMainMenu.setOnAction(e-> {
+            if (toBeAdded.size()==8) {
+                window.setScene(exercisesScene);
+                questionPane.getChildren().addAll(new Label("Question:"), exQuestion, createQuestionSpacer, returnToMainMenu);
+                answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
+                hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
+                addPane.getChildren().addAll(addExercise);
+                creationNotification.setText("");
+                toBeAdded.clear();
+            } else {
+                toBeAdded.clear();
+                creationNotification.setText("");
+                exQuestion.setText("");
+                exHint.setText("");
+                exAnswer.setText("");
+                setName.setText("");
+                window.setScene(exercisesScene);
+            }
+
+        });
+        
         createSet.setOnAction(e-> {
             ExerciseSet exSet = new ExerciseSet(setName.getText(), toBeAdded);
             exSet.setNameToQuestions();
@@ -395,10 +420,14 @@ public class ExerciseGeneratorUi extends Application {
                         }              
                     }
                     toBeAdded.clear();
+                    exQuestion.setText("");
+                    exHint.setText("");
+                    exAnswer.setText("");
                     setName.setText("");
+                    creationNotification.setText("");
                     updateExercises(window);                
                     window.setScene(exercisesScene);
-                    questionPane.getChildren().addAll(new Label("Question:"), exQuestion);
+                    questionPane.getChildren().addAll(new Label("Question:"), exQuestion, createQuestionSpacer, returnToMainMenu);
                     answerPane.getChildren().addAll(new Label("Answer:"), exAnswer);
                     hintPane.getChildren().addAll(new Label("Hint:"), exHint, new Label(" (Optional)"));
                     addPane.getChildren().addAll(addExercise);
