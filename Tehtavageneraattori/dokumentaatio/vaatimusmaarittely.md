@@ -4,10 +4,10 @@
 Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden tekemiä tehtäväsarjoja.
 
 ### **Käyttäjät**
-Alustavasti sovelluksessa tulee olemaan vain yhdenlaisia, peruskäyttäjiä.
+Sovelluksessa tulee olemaan vain yhdenlaisia, peruskäyttäjiä.
 
 ### **Käyttöliittymäluonnos**
-Sovellus koostuu viidestä eri näkymästä.
+Sovellus koostuu kuudesta eri näkymästä.
 
 ![Käyttöliittymäkaavio](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/kayttoliittymakaavio.jpg)
 
