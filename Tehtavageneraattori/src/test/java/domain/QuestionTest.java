@@ -43,4 +43,22 @@ public class QuestionTest {
         assertTrue(question.questionValidation());
     }
     
+    @Test
+    public void illegalCharactersReturnFalse() {
+        Question question = new Question("2;2", "4");        
+        assertFalse(question.questionValidation());
+        
+        question = new Question("2+2", "4;");       
+        assertFalse(question.questionValidation());
+        
+        question = new Question("2+2", "4");
+        question.setHint(";");
+        assertFalse(question.questionValidation());
+    }
+    
+    @Test
+    public void correctIsFalseAtStart() {
+        assertFalse(q.isCorrect());
+    }
+    
 }

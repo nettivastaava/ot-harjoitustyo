@@ -59,6 +59,14 @@ public class FileUserDaoTest {
         assertEquals(null, user2);
     }
     
+    @Test
+    public void savedUserIsFound() throws Exception {
+        User userToBeCreated = new User("Palle", "kissa");
+        userDao.create(userToBeCreated);
+        
+        User user = userDao.findByUsername("Palle");
+        assertEquals("Palle", user.getUsername());
+    }
     
     @After
     public void tearDown() {

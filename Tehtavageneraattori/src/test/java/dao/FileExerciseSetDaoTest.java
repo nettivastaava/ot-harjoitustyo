@@ -53,9 +53,10 @@ public class FileExerciseSetDaoTest {
     }
     
     @Test
-    public void exerciseSetIsFound() {       
+    public void exerciseSetIsFound() {
+        ExerciseSet setToBeFound = exerciseDao.findOne("Matematiikka");
 
-        assertEquals("Matematiikka", exSet.getName());
+        assertEquals(exSet.getName(), setToBeFound.getName());
     }
     
     @Test
@@ -65,33 +66,7 @@ public class FileExerciseSetDaoTest {
         assertEquals(exSet2, null);
     }
     
-    @Test
-    public void correctIsFalseAtStart() {
-         List<Question> questions = exSet.getQuestions();
-         
-         for (Question q: questions) {
-             assertFalse(q.isCorrect());
-         }
-    }
     
-    @Test
-    public void pointsAreCountedCorrectly() {
-        assertEquals(0, exSet.countPoints());
-        exSet.getQuestions().get(0).setCorrect(true);
-        assertEquals(1, exSet.countPoints());
-    }
-    
-    @Test
-    public void resetCorrectWorks() {
-         List<Question> questions = exSet.getQuestions();
-         
-         questions.get(0).setCorrect(true);
-         exSet.resetCorrectAnswers();
-         
-         for (Question q: questions) {
-             assertFalse(q.isCorrect());
-         }
-    }
     
     @After
     public void tearDown() {

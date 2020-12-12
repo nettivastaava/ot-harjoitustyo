@@ -5,6 +5,7 @@ import exercisegenerator.domain.ExerciseService;
 import exercisegenerator.domain.ExerciseSet;
 import exercisegenerator.domain.Question;
 import exercisegenerator.domain.User;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +31,7 @@ public class ExerciseServiceExerciseTest {
     
     @Test
     public void atStartListContainsOneExerciseSet() {
-        List<ExerciseSet> exercises = exerciseSetDao.getAll();
+        List<ExerciseSet> exercises = exService.exercisesList();
         
         assertEquals(1, exercises.size());
         ExerciseSet exSet = exercises.get(0);
@@ -49,5 +50,39 @@ public class ExerciseServiceExerciseTest {
         assertEquals("Matikka", q.getSetName());
     }
     
+    @Test
+    public void exerciseSetCreationFailsWithLessThanFourQuestions() throws Exception {
+        ArrayList<Question> questions = returnQuestionList(3);     
+        
+        ExerciseSet exSet = new ExerciseSet("Matikka II", questions);
+        boolean result = exService.createExerciseSet(exSet);
+        assertFalse(result);
+    }
+    
+    public ArrayList<Question> returnQuestionList(int size) {
+        ArrayList<Question> questions = new ArrayList<>();
+        for (int i=0;i<size;i++) {
+            questions.add(new Question(i+" 1?", String.valueOf(i+1)));
+        }
+        return questions;
+    }
+    
+    @Test
+    public void exerciseSetCreationFailsWhenSetNameIsNotUnique() throws Exception {
+        ArrayList<Question> questions = returnQuestionList(4);
+        
+        ExerciseSet exSet = new ExerciseSet("Matikka", questions);
+        boolean result = exService.createExerciseSet(exSet);
+        assertFalse(result);
+    }
+    
+    @Test
+    public void validExerciseSetCanBeCreated() throws Exception {
+        ArrayList<Question> questions = returnQuestionList(4);
+        
+        ExerciseSet exSet = new ExerciseSet("Matikka II", questions);
+        boolean result = exService.createExerciseSet(exSet);
+        assertTrue(result);
+    }
  
 }
