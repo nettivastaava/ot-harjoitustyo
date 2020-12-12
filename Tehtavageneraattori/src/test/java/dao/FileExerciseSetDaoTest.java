@@ -66,7 +66,16 @@ public class FileExerciseSetDaoTest {
         assertEquals(exSet2, null);
     }
     
-    
+    @Test
+    public void savedExerciseSetIsFound() throws Exception {
+        ExerciseSet setToBeCreated = new ExerciseSet();
+        setToBeCreated.setName("Fysiikka");
+
+        exerciseDao.create(setToBeCreated);
+        
+        ExerciseSet found = exerciseDao.findOne("Fysiikka");
+        assertEquals(found.getName(), "Fysiikka");
+    }
     
     @After
     public void tearDown() {

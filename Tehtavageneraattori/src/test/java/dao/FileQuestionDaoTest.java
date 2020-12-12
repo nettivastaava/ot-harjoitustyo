@@ -5,6 +5,7 @@ import exercisegenerator.dao.ExerciseSetDao;
 import exercisegenerator.dao.FileExerciseSetDao;
 import exercisegenerator.dao.FileQuestionDao;
 import exercisegenerator.dao.QuestionDao;
+import exercisegenerator.domain.Question;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
@@ -56,6 +57,18 @@ public class FileQuestionDaoTest {
         List list = questionDao.findBySetName("Matematiikka");
         
         assertEquals(list.size(), 4);
+    }
+    
+    @Test
+    public void savedQuestionIsFound() throws Exception {
+        Question questionToBeCreated = new Question ("1+1?", "2");
+        questionToBeCreated.setSetName("Tosi helppo matikka");
+        questionDao.create(questionToBeCreated);
+        
+        List<Question> list = questionDao.findBySetName("Tosi helppo matikka");
+        Question q = list.get(0);
+        assertEquals("1+1?", q.getQuestion());
+        assertEquals("2", q.getAnswer());
     }
     
     @After
