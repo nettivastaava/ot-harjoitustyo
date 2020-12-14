@@ -53,4 +53,21 @@ public class ExerciseSetTest {
              assertFalse(q.isCorrect());
          }
     }
+    
+    @Test
+    public void validNameReturnsTrue() {
+        assertTrue(exSet.nameValidation());
+    }
+    
+    @Test
+    public void emptyStringReturnFalse() {
+        exSet.setName("");
+        assertFalse(exSet.nameValidation());
+    }
+    
+    @Test
+    public void nameContainingIllegalCharactersReturnsFalse() {
+        exSet.setName("Matikka;");
+        assertFalse(exSet.nameValidation());
+    }
 }
