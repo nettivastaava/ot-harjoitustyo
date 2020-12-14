@@ -23,6 +23,15 @@ public class ExerciseSet {
             this.questions.add(q);
         }
     }
+    
+    public boolean nameValidation() {
+        if (this.name == null || !this.name.matches("^[^;]+$")) {
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
 
     public String getName() {
         return name;
