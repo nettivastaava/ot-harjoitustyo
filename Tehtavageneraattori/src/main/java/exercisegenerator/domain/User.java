@@ -26,7 +26,7 @@ public class User {
      * @return Vastauksen palaute.
      */
     public boolean isValid() {
-        if (this.username.length() < 3 || this.password.length() < 5) {
+        if (this.username.length() < 3 || this.password.length() < 5 || !this.username.matches("^[^;]+$") || !this.password.matches("^[^;]+$")) {
             return false;
         } else {
             return true;

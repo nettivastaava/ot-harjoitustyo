@@ -37,8 +37,20 @@ public class UserTest {
     }
     
     @Test
+    public void returnFalseWhenUsernameContainsIllegalCharacters() {
+        User user1 = new User("Ka;", "kissa");
+        assertFalse(user1.isValid());
+    }
+    
+    @Test
+    public void returnFalseWhenPasswordContainsIllegalCharacters() {
+        User user1 = new User("Kai", "kiss;");
+        assertFalse(user1.isValid());
+    }
+    
+    @Test
     public void returnsFalseWhenPasswordIsTooShort() {
-        User user1 = new User("Heimo", "kiss");
+        User user1 = new User("Kai", "kiss");
         assertFalse(user1.isValid());
     }
     

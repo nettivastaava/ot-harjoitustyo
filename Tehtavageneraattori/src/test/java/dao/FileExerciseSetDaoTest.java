@@ -4,7 +4,6 @@ import exercisegenerator.dao.ExerciseSetDao;
 import exercisegenerator.dao.FileExerciseSetDao;
 import exercisegenerator.dao.QuestionDao;
 import exercisegenerator.domain.ExerciseSet;
-import exercisegenerator.domain.Question;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.List;

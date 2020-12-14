@@ -68,7 +68,7 @@ public class ExerciseService {
      * @return true jos sarja luodaan onnistuneesti, muuten false.
      */
     public boolean createExerciseSet(ExerciseSet exSet) {
-        if (exSet.getQuestions().size() < 4 || exerciseSetDao.findOne(exSet.getName())!=null) {
+        if (exSet.getQuestions().size() < 4 || exerciseSetDao.findOne(exSet.getName()) != null) {
             return false;
         } 
         
