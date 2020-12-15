@@ -1,5 +1,7 @@
 # Testausdokumentti
 
+Ohjelmaa varten on toteutettu automatisoituja yksikkö- ja integraatiotestejä JUnitilla. Tämän lisäksi ohjelmaa on testattu manuaalisesti järjestelmätasolla.
+
 ### Yksikkö- ja integraatiotestaus
 
 #### Sovelluslogiikka
@@ -13,8 +15,6 @@ Sovelluslogiikan luokille User, ExerciseSet ja Question on tehty myös omia yksi
 #### Dao-luokat
 
 Kaikki DAO-luokat on testattu luomalla testeissä tilapäinen tiedosto JUnit-kirjaston TemporaryFolder-rulejen avulla.
-
-Ohjelmaa varten on toteutettu automatisoituja yksikkö- ja integraatiotestejä JUnitilla. Tämän lisäksi ohjelmaa on testattu manuaalisesti järjestelmätasolla.
 
 ### Testauskattavuus
 Sovelluksen testauksen rivi- ja haaraumakattavuudet ovat 91%. Käyttöliittymän rakentava koodi on jätetty pois tarkastelusta.
