@@ -32,6 +32,6 @@ Sovellus koostuu kuudesta eri näkymästä.
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla:
 
     • Käyttäjä voi eritellä, ketkä voivat nähdä ja ratkoa hänen lisäämänsä tehtäväsarjan
-    • Käyttäjä näkee jokaisesta tehtäväsarjasta saamansa pisteet
+    • Käyttäjä näkee jokaisesta tehtäväsarjasta saamansa pisteet. (pisteiden pysyväistallennus)
     • Jokaisesta tehtäväsarjasta näkee, paljonko pisteitä kukin käyttäjä on siitä saanut
     • Käyttäjä voi poistaa itse luomansa tehtäväsarjan

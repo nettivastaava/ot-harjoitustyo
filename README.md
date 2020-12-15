@@ -13,6 +13,8 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 
 [Arkkitehtuurikuvaus](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/arkkitehtuuri.md)
 
+[Testaus](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/testaus.md)
+
 ### Releaset
 
 [Viikko 5](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/viikko5)

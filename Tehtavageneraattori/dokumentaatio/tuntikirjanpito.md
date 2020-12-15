@@ -24,4 +24,5 @@
 | 7.12.2020 | 1 | Arkkitehtuurikuvauksen laajennus |
 | 7.12.2020 | 3 | Oikean vastauksen näyttäminen pisteytyksen yhteydessä ja testejä |
 | 11.12.2020 | 1 | Cancel-painikkeiden lisääminen |
-| yht | 55 | |
+| 12.12.2020 | 3 | Testien laajennuksia/parannuksia |
+| yht | 58 | |
