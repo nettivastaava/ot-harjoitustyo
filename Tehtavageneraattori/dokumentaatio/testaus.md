@@ -4,7 +4,7 @@
 
 #### Sovelluslogiikka
 
-Käyttöliittymän ExerciseService-olion toiminnallisuuksia testaavat integraatiotestit on toteuttu luokissa ExerciseServiceUserTest, jossa testataan kirjautumisesta ja rekisteröitymisestä huolehtivat toiminnallisuudet sekä ExerciseServiceExerciseTest, jossa taas testataan tehtäväsarjojen luomisesta huolehtivia toiminnallisuuksia.
+Käyttöliittymän ExerciseService-olion toiminnallisuuksia testaavat integraatiotestit on toteuttu luokissa ExerciseServiceUserTest, jossa testataan käyttäjän kirjautumisesta ja rekisteröitymisestä huolehtivat toiminnallisuudet sekä ExerciseServiceExerciseTest, jossa taas testataan tehtäväsarjojen luomisesta huolehtivia toiminnallisuuksia.
 
 Integraatiotesteissä käytetään tiedon pysyväistallennukseen DAO-rajapintojen keskusmuistitoteutuksia FakeUserDao, FakeExerciseSetDao ja FakeQuestionDao.
 
