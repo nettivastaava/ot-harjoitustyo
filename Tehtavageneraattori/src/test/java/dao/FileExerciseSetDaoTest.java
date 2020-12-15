@@ -30,7 +30,7 @@ public class FileExerciseSetDaoTest {
         questionFile = testFolder.newFile("testfile_questions.txt");
         
         try (FileWriter file = new FileWriter(exerciseFile.getAbsolutePath())) {
-            file.write("Matematiikka\n");
+            file.write("Matematiikka;Heimo\n");
         }
         
         try (FileWriter file = new FileWriter(questionFile.getAbsolutePath())) {
@@ -48,6 +48,7 @@ public class FileExerciseSetDaoTest {
         assertEquals(1, ex.size());
         ExerciseSet set = ex.get(0);
         assertEquals("Matematiikka", set.getName());
+        assertEquals("Heimo", set.getCreatedBy());
         assertEquals(2, set.getQuestions().size());
     }
     

@@ -18,7 +18,7 @@ public class ExerciseSetTest {
             questions.add(new Question(i+" 1?", String.valueOf(i+1)));
         }
         
-        exSet = new ExerciseSet("Matikka", questions);
+        exSet = new ExerciseSet("Matikka", "Heimo", questions);
         
     }
     
@@ -60,7 +60,7 @@ public class ExerciseSetTest {
     }
     
     @Test
-    public void emptyStringReturnFalse() {
+    public void emptyStringAsNameReturnsFalse() {
         exSet.setName("");
         assertFalse(exSet.nameValidation());
     }

@@ -79,6 +79,11 @@ public class Question {
         this.correct = correct;
     }
     
+    /**
+     * Metodi tarkistaa, onko syöttikö käyttäjä mihinkään syötekenttään virheellisiä arvoja tai jäikö pakollisia kenttiä täyttämättä.
+     *
+     * @return True mikäli arvot olivat sallittuja, false mikäli jokin kenttä sisälsi ei-sallitun arvon.
+     */
     public boolean questionValidation() {
         if (this.question.equals("") || !this.question.matches("^[^;]+$") || this.answer.equals("") || !this.answer.matches("^[^;]+$")) {
             return false;

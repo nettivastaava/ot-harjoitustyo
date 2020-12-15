@@ -26,6 +26,7 @@ public class FileExerciseSetDao implements ExerciseSetDao {
             while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(";");
                 String exName = parts[0];
+                String creator = parts[1];
                 ArrayList<Question> questions = new ArrayList<>();
                 Scanner reader2 = new Scanner(new File(file2));
                 while (reader2.hasNextLine()) {
@@ -36,7 +37,7 @@ public class FileExerciseSetDao implements ExerciseSetDao {
                         questions.add(new Question(parts[0], parts2[1], parts2[2]));
                     }
                 }
-                exercises.add(new ExerciseSet(exName, questions));
+                exercises.add(new ExerciseSet(exName, creator,  questions));
             }
         } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
@@ -45,12 +46,12 @@ public class FileExerciseSetDao implements ExerciseSetDao {
     }
     
     /**
-    * Kirjoittaa luodun tehtäväsarjan nimen tiedostoon
+    * Kirjoittaa luodun tehtäväsarjan nimen ja sarjan luoneen käyttäjän käyttäjätunnuksen tiedostoon
     */
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (ExerciseSet exSet : exercises) {
-                writer.write(exSet.getName() + "\n");
+                writer.write(exSet.getName() + ";" + exSet.getCreatedBy() + "\n");
             }           
         } 
     }

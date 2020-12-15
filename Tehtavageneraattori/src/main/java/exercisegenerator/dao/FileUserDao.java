@@ -15,9 +15,7 @@ public class FileUserDao implements UserDao {
     private List<User> users;
     private String file;
 
-    /**
-    * Lisää käyttäjän listalle  ja kutsuu save()-metodia
-    */
+    
     public FileUserDao(String file) throws Exception {
         users = new ArrayList<>();
         this.file = file;

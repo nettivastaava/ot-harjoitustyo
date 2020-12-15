@@ -10,7 +10,7 @@ public class FakeExerciseSetDao implements ExerciseSetDao {
     
     public FakeExerciseSetDao() {
         exercises = new ArrayList<>();
-        exercises.add(new ExerciseSet("Matikka", new ArrayList<>()));
+        exercises.add(new ExerciseSet("Matikka", "Heimo", new ArrayList<>()));
     }
 
     @Override

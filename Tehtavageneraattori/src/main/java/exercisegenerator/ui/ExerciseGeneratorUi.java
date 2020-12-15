@@ -410,7 +410,7 @@ public class ExerciseGeneratorUi extends Application {
         });
         
         createSet.setOnAction(e-> {
-            ExerciseSet exSet = new ExerciseSet(setName.getText(), toBeAdded);
+            ExerciseSet exSet = new ExerciseSet(setName.getText(), exService.getLoggedUser().getUsername(), toBeAdded);
             exSet.setNameToQuestions();
             if (exService.getExerciseSetDao().findOne(setName.getText())==null && exSet.nameValidation()) {          
                 if (exService.createExerciseSet(exSet)) {

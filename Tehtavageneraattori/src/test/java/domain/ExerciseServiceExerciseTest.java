@@ -54,7 +54,7 @@ public class ExerciseServiceExerciseTest {
     public void exerciseSetCreationFailsWithLessThanFourQuestions() throws Exception {
         ArrayList<Question> questions = returnQuestionList(3);     
         
-        ExerciseSet exSet = new ExerciseSet("Matikka II", questions);
+        ExerciseSet exSet = new ExerciseSet("Matikka II", "Heimo", questions);
         boolean result = exService.createExerciseSet(exSet);
         assertFalse(result);
     }
@@ -71,7 +71,7 @@ public class ExerciseServiceExerciseTest {
     public void exerciseSetCreationFailsWhenSetNameIsNotUnique() throws Exception {
         ArrayList<Question> questions = returnQuestionList(4);
         
-        ExerciseSet exSet = new ExerciseSet("Matikka", questions);
+        ExerciseSet exSet = new ExerciseSet("Matikka", "Heimo", questions);
         boolean result = exService.createExerciseSet(exSet);
         assertFalse(result);
     }
@@ -80,7 +80,7 @@ public class ExerciseServiceExerciseTest {
     public void validExerciseSetCanBeCreated() throws Exception {
         ArrayList<Question> questions = returnQuestionList(4);
         
-        ExerciseSet exSet = new ExerciseSet("Matikka II", questions);
+        ExerciseSet exSet = new ExerciseSet("Matikka II", "Heimo", questions);
         boolean result = exService.createExerciseSet(exSet);
         assertTrue(result);
     }

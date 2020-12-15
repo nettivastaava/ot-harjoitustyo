@@ -9,21 +9,29 @@ import java.util.ArrayList;
 */
 public class ExerciseSet {
     private String name;
+    private String createdBy;
     private ArrayList<Question> questions;
     
     public ExerciseSet() {
         this.name = null;
+        this.createdBy = null;
         this.questions = new ArrayList<Question>();
     }
     
-    public ExerciseSet(String name, ArrayList<Question> questions) {
+    public ExerciseSet(String name, String createdBy, ArrayList<Question> questions) {
         this.name = name;
+        this.createdBy = createdBy;
         this.questions = new ArrayList<Question>();
         for (Question q: questions) {
             this.questions.add(q);
         }
     }
     
+    /**
+     * Metodi tarkistaa, onko syöttikö käyttäjä tehtäväsarjalle ei-sallitun nimen tai jäikö kenttä tyhjäksi.
+     *
+     * @return True mikäli nimi oli sallittu, muuten false.
+     */
     public boolean nameValidation() {
         if (this.name == null || !this.name.matches("^[^;]+$")) {
             return false;
@@ -40,6 +48,12 @@ public class ExerciseSet {
     public ArrayList<Question> getQuestions() {
         return questions;
     }  
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+    
+    
 
     public void setName(String name) {
         this.name = name;
