@@ -15,7 +15,11 @@ public class FileUserDao implements UserDao {
     private List<User> users;
     private String file;
 
-    
+    /**
+    * Luokan konstruktori, jossa järjestelmään tallennetut käyttäjät luetaan tiedostosta ja muutetaan User-olioiksi
+    * 
+    * @param file käyttäjien käyttäjätunnukset ja salasanat sisältävän dokumentin nimi
+    */
     public FileUserDao(String file) throws Exception {
         users = new ArrayList<>();
         this.file = file;

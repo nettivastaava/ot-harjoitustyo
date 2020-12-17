@@ -288,8 +288,8 @@ public class ExerciseGeneratorUi extends Application {
         HBox buttonPane = new HBox(10);
         registerPane.setPadding(new Insets(10));
                        
-        inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput);
-        inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput);
+        inputPaneUpper2.getChildren().addAll(new Label("username:"), usernameRegInput, new Label("(at least 3 characters)"));
+        inputPaneLower2.getChildren().addAll(new Label("password:"), passwordRegInput, new Label("(at least 5 characters)"));
         buttonPane.getChildren().addAll(registerButton, returnToLogin);
         Label registerLabel = new Label("Registration");
                         
@@ -336,7 +336,7 @@ public class ExerciseGeneratorUi extends Application {
             User newUser = new User(username, password);
             
             if (!newUser.isValid()) {
-                registerNotification.setText("username or password is too short");
+                registerNotification.setText("invalid username or password");
                 registerNotification.setTextFill(Color.RED);
             } else if (exService.createUser(newUser)) {
                 usernameRegInput.setText("");

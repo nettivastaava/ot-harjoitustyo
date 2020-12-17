@@ -89,6 +89,7 @@ public class ExerciseService {
      * @return true jos kysymys luodaan onnistuneesti, muuten false.
      */
     public boolean createQuestion(Question q) {
+        
         try {
             questionDao.create(q);
         } catch (Exception e) {

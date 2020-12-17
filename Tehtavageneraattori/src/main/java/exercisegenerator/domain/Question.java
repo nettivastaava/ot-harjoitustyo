@@ -80,7 +80,7 @@ public class Question {
     }
     
     /**
-     * Metodi tarkistaa, onko syöttikö käyttäjä mihinkään syötekenttään virheellisiä arvoja tai jäikö pakollisia kenttiä täyttämättä.
+     * Metodi tarkistaa, syöttikö käyttäjä mihinkään kysymyksen luomislomakkeen syötekenttään virheellisiä arvoja tai jäikö pakollisia kenttiä täyttämättä.
      *
      * @return True mikäli arvot olivat sallittuja, false mikäli jokin kenttä sisälsi ei-sallitun arvon.
      */

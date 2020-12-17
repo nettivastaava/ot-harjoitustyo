@@ -17,10 +17,16 @@ public class FileExerciseSetDao implements ExerciseSetDao {
     private String file;
     private String file2;
     
-    public FileExerciseSetDao(String file, String anotherFile) throws Exception {
+    /**
+    * Luokan konstruktori, jossa järjestelmään tallennetut tehtäväsarjat kysymyksineen luetaan tiedostosta ja muutetaan ExerciseSet-olioiksi
+    * 
+    * @param exerciseFile tehtäväsarjojen nimet ja luojat sisältävän dokumentin nimi
+    * @param questionFile tehtäväsarjojen kysymykset sisältävän dokumentin nimi
+    */
+    public FileExerciseSetDao(String exerciseFile, String questionFile) throws Exception {
         exercises = new ArrayList<>();
-        this.file = file;
-        this.file2 = anotherFile;
+        this.file = exerciseFile;
+        this.file2 = questionFile;
         try {
             Scanner reader = new Scanner(new File(file));
             while (reader.hasNextLine()) {

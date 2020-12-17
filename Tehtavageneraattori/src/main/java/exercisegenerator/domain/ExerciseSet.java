@@ -53,8 +53,6 @@ public class ExerciseSet {
         return createdBy;
     }
     
-    
-
     public void setName(String name) {
         this.name = name;
     }
@@ -63,7 +61,11 @@ public class ExerciseSet {
         this.questions = questions;
     }
     
-    
+    /**
+     * Metodi lisää tehtäväsarjalle parametrina annetun kysymysolion
+     * 
+     * @param q parametrina annettu kysymysolio
+     */
     public void addQuestion(Question q) {
         this.questions.add(q);
     }

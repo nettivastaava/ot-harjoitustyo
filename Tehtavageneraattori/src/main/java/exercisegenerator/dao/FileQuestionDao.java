@@ -15,6 +15,11 @@ public class FileQuestionDao implements QuestionDao {
     private List<Question> questions;
     private String file;
     
+    /**
+    * Luokan konstruktori, jossa järjestelmään tallennetut kysymykset luetaan tiedostosta ja muutetaan Question-olioiksi
+    * 
+    * @param file tehtäväsarjojen kysymykset sisältävän dokumentin nimi
+    */
     public FileQuestionDao(String file) throws Exception {
         questions = new ArrayList<>();
         this.file = file;
