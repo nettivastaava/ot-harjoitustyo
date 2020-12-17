@@ -24,7 +24,7 @@ Kirjautumaan pääsee kirjoittamalla järjestelmään tallennettu käyttäjätun
 
 ### Rekisteröityminen
 
-Uuden käyttäjän luominen onnistuu rekisteröitymisnäkymässä, johon pääsee kirjautumisnäkymän painikkeella "create a new user".
+Uuden käyttäjän luominen onnistuu rekisteröitymisnäkymässä, johon pääsee kirjautumisnäkymän painikkeella "create a new user". Rekisteröitymisen peruuttaminen tapahtuu cancel-painikkeella, joka vie takaisin kirjautumisnäkymään.
 
 ![register](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/register.jpg)
 
@@ -36,7 +36,7 @@ Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut teht
 
 ![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)
 
-Uuden tehtäväsarjan luomisessa käytettävä lomake kuvattu alla. Tehtäväsarjaan lisätään kysymys täyttämällä lomakkeen kenttiin kysymys ja vastaus minkä jälkeen klikataan add-painiketta. Vihjeen lisääminen kysymykselle ei ole välttämätöntä. Tehtäväsarjaan on lisättävä vähintään 4 ja enintään 8 kysymystä, jonka jälkeen sarjalle annetaan nimi ja painetaan create-painiketta.
+Uuden tehtäväsarjan luomisessa käytettävä lomake kuvattu alla. Tehtäväsarjaan lisätään kysymys täyttämällä lomakkeen kenttiin kysymys ja vastaus minkä jälkeen klikataan add-painiketta. Vihjeen lisääminen kysymykselle ei ole välttämätöntä. Tehtäväsarjaan on lisättävä vähintään 4 ja enintään 8 kysymystä, jonka jälkeen sarjalle annetaan nimi ja painetaan create-painiketta. Mikäli käyttäjä ei haluakaan luoda uutta tehtäväsarjaa, pääsee cancel-painikkeella palaamaan päänäkymään, jolloin tehtäväsarjan luominen keskeytetään.
 
 ![createEx](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/createEx.jpg)
 
