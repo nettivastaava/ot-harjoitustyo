@@ -26,4 +26,5 @@
 | 11.12.2020 | 1 | Cancel-painikkeiden lisääminen |
 | 12.12.2020 | 3 | Testien laajennuksia/parannuksia |
 | 15.12.2020 | 3 | Pieniä korjauksia ja testausdokumentti |
-| yht | 61 | |
+| 17.12.2020 | 3 | Dokumentaation viimeistelyä |
+| yht | 64 | |
