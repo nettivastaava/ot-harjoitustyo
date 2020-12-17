@@ -25,4 +25,6 @@
 | 7.12.2020 | 3 | Oikean vastauksen näyttäminen pisteytyksen yhteydessä ja testejä |
 | 11.12.2020 | 1 | Cancel-painikkeiden lisääminen |
 | 12.12.2020 | 3 | Testien laajennuksia/parannuksia |
-| yht | 58 | |
+| 15.12.2020 | 3 | Pieniä korjauksia ja testausdokumentti |
+| 17.12.2020 | 3 | Dokumentaation viimeistelyä |
+| yht | 64 | |
