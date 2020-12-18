@@ -32,7 +32,7 @@ Mikäli rekisteröityminen onnistuu, palataan kirjautumisnäkymään.
 
 ### Tehtäväsarjan luominen ja ratkominen
 
-Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä. Näkymästä on mahdollisuus siirtyä ratkomaan tehtäväsarjoja painikkeella solve sekä luomaan uutta tehtäväsarjaa painikkeella create new. Uloskirjautuminen tapahtuu päänäkymästä painikkeella log out.
+Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä. Näkymästä on mahdollisuus siirtyä ratkomaan tehtäväsarjoja painikkeella "solve" sekä luomaan uutta tehtäväsarjaa painikkeella create new. Uloskirjautuminen tapahtuu päänäkymästä painikkeella "log out".
 
 ![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)
 
@@ -44,11 +44,11 @@ Sarjan luomisen jälkeen siirrytään takaisin päänäkymään. Kun nyt paineta
 
 ![solvingEx1](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/solving1.jpg)
 
-Kysymykseen vastataan kirjoittamalla vastaus kysymyksen alla olevaan syötekenttään ja painamalla answer-painiketta. Vastauksen palaute ilmestyy näkyville syötekentän yläpuolelle. Kun käyttäjä on valmis sarjan ratkomisessa, painetaan kysymysluettelon lopusta löytyvää painiketta finished.
+Kysymykseen vastataan kirjoittamalla vastaus kysymyksen alla olevaan syötekenttään ja painamalla answer-painiketta. Vastauksen palaute ilmestyy näkyville syötekentän yläpuolelle. Kun käyttäjä on valmis sarjan ratkomisessa, painetaan kysymysluettelon lopusta löytyvää painiketta "finished".
 
 ![solvingEx2](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/solving2.jpg)
 
-Tämän jälkeen avautuu pistenäkymä, josta käyttäjä näkee oikeiden vastaustensa lukumäärän. Mikäli käyttäjä jätti vastaamatta osaan kysymyksistä tai vastasi väärin, on mahdollista pyytää näytettäväksi oikeat vastaukset näihin kysymyksiin painikkeella show correct answers. Painike return to main menu vie käyttäjän takaisin päänäkymään.
+Tämän jälkeen avautuu pistenäkymä, josta käyttäjä näkee oikeiden vastaustensa lukumäärän. Mikäli käyttäjä jätti vastaamatta osaan kysymyksistä tai vastasi väärin, on mahdollista pyytää näytettäväksi oikeat vastaukset näihin kysymyksiin painikkeella "show correct answers". Painike "return to main menu" vie käyttäjän takaisin päänäkymään.
 
 ![finished](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/finished1.jpg)
 
