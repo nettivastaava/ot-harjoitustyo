@@ -21,6 +21,8 @@ Sovelluksen avulla käyttäjien on mahdollista luoda omia sekä ratkoa muiden te
 
 [Viikko 6](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/viikko6)
 
+[Viikko 7 (Loppupalautus)](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/loppupalautus)
+
 ### Komentorivitoiminnot
 
 #### Käynnistys
