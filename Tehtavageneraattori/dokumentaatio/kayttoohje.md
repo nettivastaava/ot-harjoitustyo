@@ -1,6 +1,6 @@
 ## Käyttöohje
 
-Lataa tiedosto [exercisegenerator.app](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/viikko6)
+Lataa tiedosto [exerciseapplication.jar](https://github.com/nettivastaava/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ### Konfigurointi
 
