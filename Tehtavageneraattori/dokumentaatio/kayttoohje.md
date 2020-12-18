@@ -32,7 +32,7 @@ Mikäli rekisteröityminen onnistuu, palataan kirjautumisnäkymään.
 
 ### Tehtäväsarjan luominen ja ratkominen
 
-Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä. Näkymästä on mahdollisuus siirtyä ratkomaan tehtäväsarjoja painikkeella solve sekä luomaan uutta tehtäväsarjaa painikkeella create new. Myös uloskirjautuminen tapahtuu päänäkymästä painikkeella log out.
+Onnistuneen kirjautumisen myötä siirrytään järjestelmään tallennetut tehtäväsarjat listaavaan näkymään, joka myös toimii sovelluksen päänäkymänä. Näkymästä on mahdollisuus siirtyä ratkomaan tehtäväsarjoja painikkeella solve sekä luomaan uutta tehtäväsarjaa painikkeella create new. Uloskirjautuminen tapahtuu päänäkymästä painikkeella log out.
 
 ![main](https://github.com/nettivastaava/ot-harjoitustyo/blob/master/Tehtavageneraattori/dokumentaatio/kuvat/main.jpg)
 
