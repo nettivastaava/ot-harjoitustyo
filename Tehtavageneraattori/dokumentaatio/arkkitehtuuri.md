@@ -44,6 +44,6 @@ Seuraavassa kaaviossa kuvataan käyttäjän kirjautumisen toimintalogiikka. Kirj
 
 ### Ohjelman rakenteeseen jääneet heikkoudet
 
-Sovelluksessa on kuusi näkymää, jotka kaikki rakennetaan samassa luokassa ExerciseGeneratorUi, mikä onkin paisunut useamman sadan rivin pituiseksi. Selkeyden ja jatkokehityksen kannalta olisi parempi, mikäli nämä näkymät olisi jaettu omiin luokkiinsa.
+Sovelluksessa on kuusi näkymää, jotka kaikki rakennetaan samassa luokassa ExerciseGeneratorUi, mikä onkin paisunut useamman sadan rivin pituiseksi. Selkeyden ja jatkokehityksen kannalta olisi parempi, mikäli nämä näkymät olisi toteutettu omissa luokissaan.
 
 FileDao-toteutuksissa tiedostosta lukeminen tapahtuu useammassa luokassa mikä on vastoin materiaalin suositusta. Itse tiedostoista lukeminen tapahtuu kussakin FileDao-luokassa kuitenkin melko yksilöllisesti, joten toiminnallisuudet vaatisivat joka tapauksessa useamman metodin.
